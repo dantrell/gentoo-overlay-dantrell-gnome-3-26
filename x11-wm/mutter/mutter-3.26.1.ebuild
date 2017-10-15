@@ -11,7 +11,7 @@ LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="*"
 
-IUSE="debug egl gles2 input_devices_wacom deprecated-background +introspection test udev wayland"
+IUSE="debug gles2 input_devices_wacom deprecated-background +introspection test udev wayland"
 
 # libXi-1.7.4 or newer needed per:
 # https://bugzilla.gnome.org/show_bug.cgi?id=738944
@@ -48,6 +48,7 @@ COMMON_DEPEND="
 	x11-misc/xkeyboard-config
 
 	gnome-extra/zenity
+	>=media-libs/mesa-17.2.0[egl]
 
 	gles2? ( media-libs/mesa[gles2] )
 	input_devices_wacom? ( >=dev-libs/libwacom-0.13 )
@@ -89,11 +90,6 @@ src_prepare() {
 			-i src/Makefile.in || die
 	fi
 
-	# From GNOME:
-	# 	https://git.gnome.org/browse/mutter/commit/?id=06d09890147b48bfa23f122ff86cf7fc43ff84f2
-	# 	https://git.gnome.org/browse/mutter/commit/?id=b7b5fb293d1de3af9e533f2063749fde7a790945
-	eapply "${FILESDIR}"/${PN}-3.26.1-wayland-remove-zwp-linux-dmabuf-v1-support.patch
-
 	eapply "${FILESDIR}"/${PN}-3.24.3-support-elogind.patch
 
 	if use deprecated-background; then
@@ -130,10 +126,10 @@ src_configure() {
 		--with-libcanberra \
 		$(usex debug --enable-debug=yes "") \
 		$(use_enable gles2)        \
-		$(use_enable egl egl-device)        \
 		$(use_enable gles2 cogl-gles2) \
 		$(use_enable introspection) \
 		$(use_enable wayland) \
+		$(use_enable wayland egl-device) \
 		$(use_enable wayland kms-egl-platform) \
 		$(use_enable wayland native-backend) \
 		$(use_enable wayland wayland-egl-server) \
