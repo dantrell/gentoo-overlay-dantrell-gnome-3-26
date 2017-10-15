@@ -3,14 +3,14 @@
 EAPI="6"
 VALA_USE_DEPEND="vapigen"
 
-inherit gnome2 vala
+inherit gnome2 vala meson
 
 DESCRIPTION="GNOME contact management application"
 HOMEPAGE="https://wiki.gnome.org/Design/Apps/Contacts"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="*"
+KEYWORDS="~*"
 
 IUSE="v4l"
 
@@ -32,7 +32,7 @@ RDEPEND="
 	media-libs/clutter:1.0
 	media-libs/clutter-gtk:1.0
 	media-libs/libchamplain:0.12
-	net-libs/gnome-online-accounts:=
+	net-libs/gnome-online-accounts:=[vala]
 	>=net-libs/telepathy-glib-0.17.5
 	>=sci-geosciences/geocode-glib-3.15.3
 	x11-libs/cairo:=
@@ -52,17 +52,14 @@ DEPEND="${RDEPEND}
 "
 
 src_prepare() {
-	# Regenerate the pre-generated C sources, bug #471628
-	if ! use v4l; then
-		touch src/*.vala
-	fi
-
 	vala_src_prepare
 	gnome2_src_prepare
 }
 
 src_configure() {
-	gnome2_src_configure \
-		--enable-man-pages \
-		$(use_with v4l cheese)
+	local emesonargs=(
+		-D with-cheese=$(usex v4l true false)
+		-D with-manpage=true
+	)
+	meson_src_configure
 }

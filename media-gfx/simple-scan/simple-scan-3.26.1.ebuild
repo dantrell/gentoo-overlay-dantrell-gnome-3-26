@@ -2,13 +2,10 @@
 
 EAPI="6"
 
-inherit gnome2 vala versionator
+inherit gnome2 vala meson
 
 DESCRIPTION="Simple document scanning utility"
 HOMEPAGE="https://launchpad.net/simple-scan"
-
-MY_PV=$(get_version_component_range 1-2)
-SRC_URI="https://launchpad.net/${PN}/${MY_PV}/${PV}/+download/${P}.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -24,7 +21,7 @@ COMMON_DEPEND="
 	virtual/jpeg:0=
 	x11-libs/cairo:=
 	>=x11-libs/gtk+-3:3
-	colord? ( >=x11-misc/colord-0.1.24:=[udev] )
+	colord? ( >=x11-misc/colord-0.1.24:=[udev,vala] )
 	packagekit? ( app-admin/packagekit-base )
 "
 RDEPEND="${COMMON_DEPEND}
@@ -42,17 +39,4 @@ DEPEND="${COMMON_DEPEND}
 src_prepare() {
 	vala_src_prepare
 	gnome2_src_prepare
-}
-
-src_configure() {
-	gnome2_src_configure \
-		$(use_enable colord) \
-		$(use_enable packagekit)
-
-	# From Simple Scan:
-	# 	https://bugs.launchpad.net/simple-scan/+bug/1462769
-	if ! use packagekit; then
-		# Force Vala to regenerate C files
-		emake clean
-	fi
 }

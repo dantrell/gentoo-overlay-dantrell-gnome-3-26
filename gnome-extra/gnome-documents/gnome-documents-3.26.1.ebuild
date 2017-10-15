@@ -30,7 +30,7 @@ COMMON_DEPEND="
 	>=net-libs/gnome-online-accounts-3.2.0:=[introspection]
 	x11-libs/pango[introspection]
 	>=net-libs/libzapojit-0.0.2[introspection]
-	>=app-text/libgepub-0.4[introspection]
+	>=app-text/libgepub-0.5[introspection]
 "
 RDEPEND="${COMMON_DEPEND}
 	net-misc/gnome-online-miners

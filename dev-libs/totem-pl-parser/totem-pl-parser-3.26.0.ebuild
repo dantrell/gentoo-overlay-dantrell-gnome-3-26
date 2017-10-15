@@ -1,16 +1,15 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="6"
-GNOME2_EAUTORECONF="yes"
 
-inherit gnome2
+inherit gnome2 meson
 
 DESCRIPTION="Playlist parsing library"
 HOMEPAGE="https://developer.gnome.org/totem-pl-parser/stable/"
 
 LICENSE="LGPL-2+"
 SLOT="0/18"
-KEYWORDS=""
+KEYWORDS="~*"
 
 IUSE="archive crypt +introspection +quvi test"
 
@@ -35,14 +34,6 @@ DEPEND="${RDEPEND}
 		gnome-base/gvfs[http]
 		sys-apps/dbus )
 "
-# eautoreconf needs:
-#	dev-libs/gobject-introspection-common
-#   sys-devel/autoconf-archive
-
-PATCHES=(
-	# Fix gmime slot automagic, https://bugzilla.gnome.org/786231
-	"${FILESDIR}"/${P}-gmime-automagic.patch
-)
 
 src_prepare() {
 	# Disable tests requiring network access, bug #346127
@@ -56,20 +47,11 @@ src_prepare() {
 }
 
 src_configure() {
-	# uninstalled-tests is abused to switch from loading live FS helper
-	# to in-build-tree helper, check on upgrades this is not having other
-	# consequences, bug #630242
-	gnome2_src_configure \
-		--disable-static \
-		--enable-gmime=2.6 \
-		--enable-uninstalled-tests \
-		$(use_enable archive libarchive) \
-		$(use_enable crypt libgcrypt) \
-		$(use_enable quvi) \
-		$(use_enable introspection)
-}
-
-src_test() {
-	# This is required as told by upstream in bgo#629542
-	GVFS_DISABLE_FUSE=1 dbus-run-session emake check
+	local emesonargs=(
+		-D enable-quvi=$(usex quvi yes no)
+		-D enable-libarchive=$(usex archive yes no)
+		-D enable-libgcrypt=$(usex crypt yes no)
+		-D enable-gtk-doc=true
+	)
+	meson_src_configure
 }
