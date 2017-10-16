@@ -15,7 +15,7 @@ KEYWORDS="*"
 IUSE="flickr test upnp-av"
 
 COMMON_DEPEND="
-	>=app-misc/tracker-1:=[miner-fs]
+	>=app-misc/tracker-2:=[miner-fs]
 	>=dev-libs/glib-2.44:2
 	gnome-base/gsettings-desktop-schemas
 	>=dev-libs/libgdata-0.15.2:0=[gnome-online-accounts]
@@ -29,7 +29,7 @@ COMMON_DEPEND="
 	sci-geosciences/geocode-glib
 	>=x11-libs/cairo-1.14
 	x11-libs/gdk-pixbuf:2
-	>=x11-libs/gtk+-3.22.15:3
+	>=x11-libs/gtk+-3.22.16:3
 "
 # gnome-online-miners is also used for google, facebook, DLNA - not only flickr
 # but out of all the grilo-plugins, only upnp-av and flickr get used, which have USE flags here,

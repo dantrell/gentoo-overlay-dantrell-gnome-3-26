@@ -4,7 +4,7 @@ EAPI="6"
 GNOME2_LA_PUNT="yes"
 PYTHON_COMPAT=( python{3_4,3_5,3_6} )
 
-inherit gnome2 python-r1 meson
+inherit gnome2 python-single-r1 meson
 
 DESCRIPTION="Tool to customize GNOME 3 options"
 HOMEPAGE="https://wiki.gnome.org/action/show/Apps/GnomeTweakTool"
@@ -39,10 +39,18 @@ DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig
 "
 
+pkg_setup() {
+	python-single-r1_pkg_setup
+}
+
 src_prepare() {
 	# Add contents of Gentoo's cursor theme directory to cursor theme list
 	eapply "${FILESDIR}/${PN}-3.25.92-gentoo-cursor-themes.patch"
 
 	gnome2_src_prepare
-	python_copy_sources
+}
+
+src_install() {
+	meson_src_install
+	python_fix_shebang "${D}"usr/bin/"${PN}"
 }

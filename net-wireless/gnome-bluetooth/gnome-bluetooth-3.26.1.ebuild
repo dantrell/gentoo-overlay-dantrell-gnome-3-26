@@ -36,8 +36,6 @@ DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig
 	x11-proto/xproto
 "
-# eautoreconf needs:
-#	gnome-base/gnome-common
 
 pkg_setup() {
 	enewgroup plugdev
