@@ -24,7 +24,7 @@ RDEPEND="
 	>=dev-libs/atk-2.26
 	>=x11-libs/libwnck-3.24.0:3
 	>=gnome-base/librsvg-2.40.17
-	>=gnome-base/gnome-desktop-${PV}:3
+	>=gnome-base/gnome-desktop-3.25.4:3
 	>=x11-libs/startup-notification-0.12
 
 	>=gnome-base/gvfs-1.34
