@@ -75,6 +75,10 @@ src_prepare() {
 			close the previewer, press space again."
 	fi
 
+	# From GNOME:
+	# 	https://bugzilla.gnome.org/show_bug.cgi?id=784189
+	eapply "${FILESDIR}"/${PN}-3.26.0-dont-explicitly-require-libm.patch
+
 	if ! use vanilla-menu; then
 		eapply "${FILESDIR}"/${PN}-3.22.0-reorder-context-menu.patch
 		if ! use vanilla-menu-compress; then
