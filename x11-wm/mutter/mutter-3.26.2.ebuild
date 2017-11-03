@@ -90,10 +90,6 @@ src_prepare() {
 			-i src/Makefile.in || die
 	fi
 
-	# From GNOME:
-	# 	https://git.gnome.org/browse/mutter/commit/?id=41f7a5fdf3bd95bd13e43e2151d29157d1dc5168
-	eapply "${FILESDIR}"/${PN}-3.26.2-x11-protect-xchangeproperty-call-with-error-traps.patch
-
 	eapply "${FILESDIR}"/${PN}-3.24.3-support-elogind.patch
 
 	if use deprecated-background; then

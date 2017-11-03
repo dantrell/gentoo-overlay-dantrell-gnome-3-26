@@ -6,6 +6,7 @@ DESCRIPTION="Nautilus extension to tag files for Tracker"
 
 SLOT="0"
 KEYWORDS="*"
+
 IUSE=""
 
 RDEPEND=""
