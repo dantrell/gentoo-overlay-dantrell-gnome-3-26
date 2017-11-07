@@ -103,7 +103,7 @@ PATCHES=(
 	# Make colord and wacom optional; requires eautoreconf
 	"${FILESDIR}"/${PN}-3.24.3-optional.patch
 	# Allow specifying udevrulesdir via configure, bug 509484; requires eautoreconf
-	"${FILESDIR}"/${PN}-3.26.1-udevrulesdir-configure.patch
+	"${FILESDIR}"/${PN}-3.26.2-udevrulesdir-configure.patch
 	# Fix build when Wayland is disabled
 	"${FILESDIR}"/${PN}-3.24.3-fix-without-gdkwayland.patch
 )
