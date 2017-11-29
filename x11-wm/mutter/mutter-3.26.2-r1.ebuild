@@ -96,6 +96,10 @@ src_prepare() {
 		eapply "${FILESDIR}"/${PN}-3.26.1-restore-deprecated-background-code.patch
 	fi
 
+	# From Zhu Hai:
+	# 	https://bugzilla.gnome.org/show_bug.cgi?id=789166
+	eapply "${FILESDIR}"/${PN}-3.26.2-wayland-check-monitor-before-use-to-avoid-crash.patch
+
 	eautoreconf
 	gnome2_src_prepare
 
