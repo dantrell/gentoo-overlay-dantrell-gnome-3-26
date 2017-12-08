@@ -11,7 +11,11 @@ LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="*"
 
-IUSE="debug gles2 input_devices_wacom deprecated-background +introspection test udev wayland"
+IUSE="ck debug deprecated-background elogind gles2 input_devices_wacom +introspection systemd test udev wayland"
+REQUIRED_USE="
+	?? ( ck elogind systemd )
+	wayland? ( || ( elogind systemd ) )
+"
 
 # libXi-1.7.4 or newer needed per:
 # https://bugzilla.gnome.org/show_bug.cgi?id=738944
@@ -90,7 +94,9 @@ src_prepare() {
 			-i src/Makefile.in || die
 	fi
 
-	eapply "${FILESDIR}"/${PN}-3.24.3-support-elogind.patch
+	if use elogind; then
+		eapply "${FILESDIR}"/${PN}-3.24.3-support-elogind.patch
+	fi
 
 	if use deprecated-background; then
 		eapply "${FILESDIR}"/${PN}-3.26.1-restore-deprecated-background-code.patch
