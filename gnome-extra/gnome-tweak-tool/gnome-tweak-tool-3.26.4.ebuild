@@ -45,7 +45,7 @@ pkg_setup() {
 
 src_prepare() {
 	# Add contents of Gentoo's cursor theme directory to cursor theme list
-	eapply "${FILESDIR}/${PN}-3.25.92-gentoo-cursor-themes.patch"
+	eapply "${FILESDIR}"/${PN}-3.25.92-gentoo-cursor-themes.patch
 
 	gnome2_src_prepare
 }
