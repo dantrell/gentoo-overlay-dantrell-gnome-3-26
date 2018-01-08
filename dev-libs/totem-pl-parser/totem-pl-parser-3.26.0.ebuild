@@ -9,7 +9,7 @@ HOMEPAGE="https://developer.gnome.org/totem-pl-parser/stable/"
 
 LICENSE="LGPL-2+"
 SLOT="0/18"
-KEYWORDS="~*"
+KEYWORDS="*"
 
 IUSE="archive crypt +introspection +quvi test"
 
@@ -26,7 +26,7 @@ DEPEND="${RDEPEND}
 	!<media-video/totem-2.21
 	dev-libs/gobject-introspection-common
 	>=dev-util/intltool-0.35
-	>=dev-util/gtk-doc-am-1.14
+	>=dev-util/gtk-doc-1.14
 	sys-devel/autoconf-archive
 	>=sys-devel/gettext-0.17
 	virtual/pkgconfig

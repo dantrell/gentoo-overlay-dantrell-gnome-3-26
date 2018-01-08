@@ -27,7 +27,7 @@ COMMON_DEPEND="
 	>=dev-libs/glib-2.35:2[dbus]
 	>=dev-libs/libpeas-1.1[gtk]
 	>=dev-libs/libxml2-2.6:2
-	>=dev-libs/totem-pl-parser-3.10.1:0=[introspection?]
+	>=dev-libs/totem-pl-parser-3.26.0:0=[introspection?]
 	>=media-libs/clutter-1.17.3:1.0[gtk]
 	>=media-libs/clutter-gst-2.99.2:3.0
 	>=media-libs/clutter-gtk-1.8.1:1.0

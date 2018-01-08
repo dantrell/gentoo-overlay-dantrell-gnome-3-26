@@ -36,6 +36,10 @@ DEPEND="${COMMON_DEPEND}
 # (files under ${S}/man).
 # docbook-xml-dtd-4.4 and -4.1.2 are used by the xml files under ${S}/docs.
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-3.25.90-fix-libm-check.patch
+)
+
 src_configure() {
 	local emesonargs=(
 		-D enable-tests=$(usex test true false)

@@ -40,6 +40,10 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig
 "
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-3.26.0-fix-libm-check.patch
+)
+
 src_configure() {
 	local emesonargs=(
 		-D enable-tests=false
