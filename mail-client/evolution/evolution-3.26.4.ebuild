@@ -13,7 +13,7 @@ LICENSE="|| ( LGPL-2 LGPL-3 ) CC-BY-SA-3.0 FDL-1.3+ OPENLDAP"
 SLOT="2.0"
 KEYWORDS="*"
 
-IUSE="archive +bogofilter crypt geolocation highlight ldap spamassassin spell ssl +weather"
+IUSE="archive +bogofilter crypt geolocation highlight ldap spamassassin spell ssl +weather ytnef"
 
 # We need a graphical pinentry frontend to be able to ask for the GPG
 # password from inside evolution, bug 160302
@@ -64,6 +64,7 @@ COMMON_DEPEND="
 		>=dev-libs/nspr-4.6.1:=
 		>=dev-libs/nss-3.11:= )
 	weather? ( >=dev-libs/libgweather-3.10:2= )
+	ytnef? ( net-mail/ytnef )
 "
 DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.1.2
@@ -113,7 +114,7 @@ src_configure() {
 		-DENABLE_AUTOAR=$(usex archive)
 		-DWITH_HELP=ON
 		-DENABLE_LIBCRYPTUI=$(usex crypt "ON" "OFF")
-		-DENABLE_YTNEF=OFF
+		-DENABLE_YTNEF=$(usex ytnef "ON" "OFF")
 		-DWITH_BOGOFILTER=$(usex bogofilter)
 		-DWITH_SPAMASSASSIN=$(usex spamassassin "ON" "OFF")
 		-DENABLE_GTKSPELL=$(usex spell)
