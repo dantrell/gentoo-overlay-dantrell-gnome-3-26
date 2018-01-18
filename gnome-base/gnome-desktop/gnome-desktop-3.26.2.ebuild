@@ -9,11 +9,13 @@ HOMEPAGE="https://git.gnome.org/browse/gnome-desktop"
 
 LICENSE="GPL-2+ FDL-1.1+ LGPL-2+"
 SLOT="3/12" # subslot = libgnome-desktop-3 soname version
-KEYWORDS=""
+KEYWORDS="~*"
 
-IUSE="debug +introspection udev"
+IUSE="debug +introspection +seccomp udev"
 
 # cairo[X] needed for gnome-bg
+# bubblewrap is automagic
+# seccomp is automagic, though we want to use it whenever possible (linux)
 COMMON_DEPEND="
 	app-text/iso-codes
 	>=dev-libs/glib-2.44.0:2[dbus]
@@ -23,7 +25,9 @@ COMMON_DEPEND="
 	x11-libs/libX11
 	x11-misc/xkeyboard-config
 	>=gnome-base/gsettings-desktop-schemas-3.5.91
+	sys-apps/bubblewrap
 	introspection? ( >=dev-libs/gobject-introspection-0.9.7:= )
+	seccomp? ( >=sys-libs/libseccomp-2.0 )
 	udev? (
 		sys-apps/hwids
 		virtual/libudev:= )
