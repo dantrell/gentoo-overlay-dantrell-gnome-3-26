@@ -40,6 +40,10 @@ src_prepare() {
 	# 	http://pkgs.fedoraproject.org/cgit/rpms/bijiben.git/tree/bijiben.spec?h=f27
 	sed -i -e 's/tracker-sparql-1\.0/tracker-sparql-2.0/g' configure
 
+	# From GNOME:
+	# 	https://git.gnome.org/browse/bijiben/commit/?id=384dd61950cf40d2a0c2f9caf9ed0cb8bd2a4029
+	eapply "${FILESDIR}"/${PN}-3.27.4-memo-provider-dont-add-custom-border-to-pixbuf.patch
+
 	gnome2_src_prepare
 }
 
