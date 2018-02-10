@@ -1,0 +1,25 @@
+From 062acef135a62b530697a8454efa35ce3cdff5a0 Mon Sep 17 00:00:00 2001
+From: Niels De Graef <nielsdegraef@gmail.com>
+Date: Tue, 26 Dec 2017 22:11:15 +0100
+Subject: Meson: don't forget to install the search provider.
+
+---
+ data/meson.build | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/data/meson.build b/data/meson.build
+index a117a02..cef7a54 100644
+--- a/data/meson.build
++++ b/data/meson.build
+@@ -52,3 +52,8 @@ configure_file(
+   install: true,
+   install_dir: join_paths(get_option('datadir'), 'dbus-1', 'services'),
+ )
++
++# The search provider file
++install_data('org.gnome.Contacts.search-provider.ini',
++  install_dir: join_paths(get_option('datadir'), 'gnome-shell', 'search-providers'),
++)
+-- 
+cgit v1.1
+

@@ -1,0 +1,117 @@
+From 9286254274565bcc94a243c2d868fe0b7132a2fb Mon Sep 17 00:00:00 2001
+From: Niels De Graef <nielsdegraef@gmail.com>
+Date: Thu, 28 Dec 2017 16:46:32 +0100
+Subject: Meson: install search provider to the correct dir.
+
+Also: clean up the directory handling a bit.
+---
+ data/meson.build | 16 ++++++++--------
+ meson.build      | 11 ++++++++---
+ src/meson.build  |  3 ++-
+ 3 files changed, 18 insertions(+), 12 deletions(-)
+
+diff --git a/data/meson.build b/data/meson.build
+index cef7a54..8f6defc 100644
+--- a/data/meson.build
++++ b/data/meson.build
+@@ -5,7 +5,7 @@ resources = gnome.compile_resources('org.gnome.Contacts', resource_files,
+ )
+ 
+ # The icons
+-iconsdir = join_paths(get_option('datadir'), 'icons', 'hicolor')
++iconsdir = join_paths(datadir, 'icons', 'hicolor')
+ foreach size: ['16x16', '22x22', '32x32', '48x48', '512x512', 'symbolic']
+   install_subdir('icons/hicolor/' + size, install_dir: iconsdir)
+ endforeach
+@@ -17,7 +17,7 @@ i18n.merge_file(
+   type: 'desktop',
+   po_dir: po_dir,
+   install: true,
+-  install_dir: join_paths(get_option('datadir'), 'applications')
++  install_dir: join_paths(datadir, 'applications')
+ )
+ 
+ # The appdata file
+@@ -27,13 +27,13 @@ i18n.merge_file(
+   type: 'xml',
+   po_dir: po_dir,
+   install: true,
+-  install_dir: join_paths(get_option('datadir'), 'metainfo')
++  install_dir: join_paths(datadir, 'metainfo')
+ )
+ 
+ # DBus service files
+ service_config = configuration_data()
+-service_config.set('bindir', join_paths(get_option('prefix'), get_option('bindir')))
+-service_config.set('libexecdir', join_paths(get_option('prefix'), get_option('libexecdir')))
++service_config.set('bindir', join_paths(bindir))
++service_config.set('libexecdir', join_paths(libexecdir))
+ 
+ # The DBUS service file of the app
+ configure_file(
+@@ -41,7 +41,7 @@ configure_file(
+   output: 'org.gnome.Contacts.service',
+   configuration: service_config,
+   install: true,
+-  install_dir: join_paths(get_option('datadir'), 'dbus-1', 'services'),
++  install_dir: join_paths(datadir, 'dbus-1', 'services'),
+ )
+ 
+ # The DBUS service file of the search provider
+@@ -50,10 +50,10 @@ configure_file(
+   output: 'org.gnome.Contacts.SearchProvider.service',
+   configuration: service_config,
+   install: true,
+-  install_dir: join_paths(get_option('datadir'), 'dbus-1', 'services'),
++  install_dir: join_paths(datadir, 'dbus-1', 'services'),
+ )
+ 
+ # The search provider file
+ install_data('org.gnome.Contacts.search-provider.ini',
+-  install_dir: join_paths(get_option('datadir'), 'gnome-shell', 'search-providers'),
++  install_dir: join_paths(datadir, 'gnome-shell', 'search-providers'),
+ )
+diff --git a/meson.build b/meson.build
+index 151a2ad..f6077dd 100644
+--- a/meson.build
++++ b/meson.build
+@@ -15,9 +15,14 @@ add_project_arguments(
+ 
+ # Some variables
+ config_h_dir = include_directories('.')
+-locale_dir = join_paths(get_option('prefix'), get_option('localedir'))
+-pkgdatadir = join_paths(get_option('datadir'), meson.project_name())
+-pkglibdir = join_paths(get_option('libdir'), meson.project_name())
++contacts_prefix = get_option('prefix')
++datadir = join_paths(contacts_prefix, get_option('datadir'))
++bindir = join_paths(contacts_prefix, get_option('bindir'))
++libdir = join_paths(contacts_prefix, get_option('libdir'))
++libexecdir = join_paths(contacts_prefix, get_option('libexecdir'))
++locale_dir = join_paths(contacts_prefix, get_option('localedir'))
++pkgdatadir = join_paths(datadir, meson.project_name())
++pkglibdir = join_paths(libdir, meson.project_name())
+ po_dir = join_paths(meson.source_root(), 'po')
+ 
+ # Dependencies
+diff --git a/src/meson.build b/src/meson.build
+index c95aca3..f54b6eb 100644
+--- a/src/meson.build
++++ b/src/meson.build
+@@ -1,7 +1,7 @@
+ # GSettings
+ compiled = gnome.compile_schemas()
+ install_data('org.gnome.Contacts.gschema.xml',
+-  install_dir: join_paths(get_option('datadir'), 'glib-2.0', 'schemas'),
++  install_dir: join_paths(datadir, 'glib-2.0', 'schemas'),
+ )
+ 
+ # The gnome-contacts binary
+@@ -111,4 +111,5 @@ executable('gnome-contacts-search-provider', contact_search_provider_sources,
+   c_args: contacts_c_args,
+   dependencies: contacts_deps,
+   install: true,
++  install_dir: libexecdir,
+ )
+-- 
+cgit v1.1
+

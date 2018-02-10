@@ -51,6 +51,14 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig
 "
 
+PATCHES=(
+	# From GNOME:
+	# 	https://gitlab.gnome.org/GNOME/gnome-contacts/commit/062acef135a62b530697a8454efa35ce3cdff5a0
+	# 	https://gitlab.gnome.org/GNOME/gnome-contacts/commit/9286254274565bcc94a243c2d868fe0b7132a2fb
+	"${FILESDIR}"/${PN}-3.27.4-meson-dont-forget-to-install-the-search-provider.patch
+	"${FILESDIR}"/${PN}-3.27.4-meson-install-search-provider-to-the-correct-dir.patch
+)
+
 src_prepare() {
 	vala_src_prepare
 	gnome2_src_prepare
