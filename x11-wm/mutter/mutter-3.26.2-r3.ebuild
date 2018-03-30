@@ -106,6 +106,10 @@ src_prepare() {
 	# 	https://bugzilla.gnome.org/show_bug.cgi?id=789166
 	eapply "${FILESDIR}"/${PN}-3.26.2-wayland-check-monitor-before-use-to-avoid-crash.patch
 
+	# From GNOME:
+	# 	https://gitlab.gnome.org/GNOME/mutter/commit/31779404f0e083fba11d1d263f278154e0580374
+	eapply "${FILESDIR}"/${PN}-3.28.1-clutter-avoid-unnecessary-relayouts-in-cluttertext.patch
+
 	eautoreconf
 	gnome2_src_prepare
 
