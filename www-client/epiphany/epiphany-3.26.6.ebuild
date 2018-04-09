@@ -47,14 +47,6 @@ DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig
 "
 
-PATCHES=(
-	# https://bugzilla.gnome.org/show_bug.cgi?id=751591
-	#"${FILESDIR}"/${PN}-3.16.0-unittest-1.patch
-
-	# https://bugzilla.gnome.org/show_bug.cgi?id=751593
-	#"${FILESDIR}"/${PN}-3.14.0-unittest-2.patch
-)
-
 src_configure() {
 	# https://bugzilla.gnome.org/show_bug.cgi?id=778495
 	#append-cflags -std=gnu11

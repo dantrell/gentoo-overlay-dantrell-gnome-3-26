@@ -28,6 +28,8 @@ dev-python/pygobject::gentoo
 dev-python/pygobject::gnome-kit
 dev-util/devhelp::gentoo
 dev-util/devhelp::gnome-kit
+dev-util/gnome-builder::dev-kit
+dev-util/gnome-builder::gentoo
 dev-util/gnome-devel-docs::gentoo
 dev-util/gnome-devel-docs::gnome-kit
 games-board/gnome-chess::gentoo
@@ -42,7 +44,6 @@ games-puzzle/gnome-sudoku::gentoo
 games-puzzle/gnome-sudoku::gnome-kit
 games-puzzle/gnome-taquin::gentoo
 games-puzzle/gnome-taquin::gnome-kit
-games-puzzle/gnome2048::gentoo
 games-puzzle/lightsoff::gentoo
 games-puzzle/lightsoff::gnome-kit
 games-puzzle/swell-foop::gentoo
@@ -81,8 +82,6 @@ gnome-extra/evolution-ews::gentoo
 gnome-extra/evolution-ews::gnome-kit
 gnome-extra/gnome-boxes::gentoo
 gnome-extra/gnome-boxes::gnome-kit
-gnome-extra/gnome-builder::gentoo
-gnome-extra/gnome-builder::gnome-kit
 gnome-extra/gnome-calculator::gentoo
 gnome-extra/gnome-calculator::gnome-kit
 gnome-extra/gnome-calendar::gentoo
@@ -102,8 +101,6 @@ gnome-extra/gnome-getting-started-docs::gnome-kit
 gnome-extra/gnome-multi-writer::gentoo
 gnome-extra/gnome-packagekit::gentoo
 gnome-extra/gnome-packagekit::gnome-kit
-gnome-extra/gnome-power-manager::gentoo
-gnome-extra/gnome-power-manager::gnome-kit
 gnome-extra/gnome-shell-extensions::gentoo
 gnome-extra/gnome-shell-extensions::gnome-kit
 gnome-extra/gnome-shell-frippery::gentoo
@@ -117,14 +114,10 @@ gnome-extra/gnome-tweak-tool::gentoo
 gnome-extra/gnome-tweak-tool::gnome-kit
 gnome-extra/gnome-user-docs::gentoo
 gnome-extra/gnome-user-docs::gnome-kit
-gnome-extra/nautilus-tracker-tags::gentoo
-gnome-extra/nautilus-tracker-tags::gnome-kit
 gnome-extra/yelp::gentoo
 gnome-extra/yelp::gnome-kit
 mail-client/evolution::gentoo
 mail-client/evolution::gnome-kit
-media-gfx/eog-plugins::gentoo
-media-gfx/eog-plugins::gnome-kit
 media-gfx/eog::gentoo
 media-gfx/eog::gnome-kit
 media-gfx/gnome-font-viewer::gentoo

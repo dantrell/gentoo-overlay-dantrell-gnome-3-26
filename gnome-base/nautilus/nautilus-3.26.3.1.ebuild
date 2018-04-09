@@ -126,7 +126,6 @@ src_configure() {
 		-Denable-packagekit=$(usex packagekit true false)
 		-Denable-nst-extension=$(usex sendto true false)
 		-Denable-selinux=$(usex selinux true false)
-		-Denable-selinux=$(usex selinux true false)
 		-Denable-profiling=false
 		-Denable-desktop=true
 	)
