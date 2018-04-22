@@ -122,7 +122,6 @@ pkg_setup() {
 src_configure() {
 	gnome2_src_configure \
 		--disable-static \
-		--enable-man \
 		--with-udevrulesdir="$(get_udevdir)"/rules.d \
 		$(use_enable colord color) \
 		$(use_enable cups) \

@@ -84,6 +84,7 @@ DEPEND="${RDEPEND}
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.30.2-sysmacros.patch #580234
+	"${FILESDIR}"/rollup #599482
 )
 
 src_prepare() {
