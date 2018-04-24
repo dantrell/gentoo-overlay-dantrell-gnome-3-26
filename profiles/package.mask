@@ -26,6 +26,8 @@ dev-libs/libgweather::gnome-kit
 dev-libs/template-glib::gentoo
 dev-python/pygobject::gentoo
 dev-python/pygobject::gnome-kit
+dev-util/anjuta::gentoo
+dev-util/anjuta::gnome-kit
 dev-util/devhelp::gentoo
 dev-util/devhelp::gnome-kit
 dev-util/gnome-builder::dev-kit
