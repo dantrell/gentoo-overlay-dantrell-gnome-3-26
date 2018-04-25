@@ -41,7 +41,7 @@ RESTRICT="test"
 RDEPEND="
 	>=x11-libs/gtk+-3.22.1:3[introspection]
 	>=dev-libs/glib-2.50.0:2[dbus]
-	>=x11-libs/gtksourceview-3.22.0:3.0[introspection]
+	>=x11-libs/gtksourceview-3.22.0:3.0[introspection,vala?]
 	>=dev-libs/gobject-introspection-1.48.0:=
 	>=dev-python/pygobject-3.22.0:3
 	>=dev-libs/libxml2-2.9.0
@@ -64,6 +64,8 @@ RDEPEND="
 	>=dev-libs/template-glib-3.25
 	>=dev-libs/jsonrpc-glib-3.25
 	dev-util/devhelp
+	dev-python/jedi
+	dev-python/lxml
 "
 # desktop-file-utils for desktop-file-validate check in configure for 3.22.4
 DEPEND="${RDEPEND}
@@ -81,11 +83,7 @@ that are currently available with packages include:
 * dev-util/ctags with exuberant-ctags selected via "eselect ctags" for
   C, C++, Python, JavaScript, CSS, HTML and Ruby autocompletion, semantic
   highlighting and symbol resolving support.
-* dev-python/jedi and dev-python/lxml for more accurate Python
-  autocompletion support.
 * dev-util/valgrind for integration with valgrind.
-* dev-util/meson for integration with the Meson build system.
-* dev-util/cargo for integration with the Rust Cargo build system.
 '
 # FIXME: Package gnome-code-assistance and mention here, or maybe USE flag and default enable because it's rather important
 # eslint for additional diagnostics in JavaScript files
