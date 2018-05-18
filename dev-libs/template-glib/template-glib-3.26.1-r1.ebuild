@@ -3,7 +3,7 @@
 EAPI="6"
 VALA_USE_DEPEND="vapigen"
 
-inherit gnome2 multilib-minimal vala meson
+inherit gnome2 meson multilib-minimal vala
 
 DESCRIPTION="JSON RPC GLIB"
 HOMEPAGE="https://wiki.gnome.org/Projects/JsonGlib"
@@ -31,4 +31,16 @@ DEPEND="${RDEPEND}
 src_prepare() {
 	use vala && vala_src_prepare
 	gnome2_src_prepare
+}
+
+multilib_src_configure() {
+	meson_src_configure
+}
+
+multilib_src_compile() {
+	meson_src_compile
+}
+
+multilib_src_install() {
+	meson_src_install
 }

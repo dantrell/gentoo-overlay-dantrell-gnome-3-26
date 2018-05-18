@@ -4,7 +4,7 @@ EAPI="6"
 GNOME2_LA_PUNT="yes"
 PYTHON_COMPAT=( python{3_4,3_5,3_6} )
 
-inherit gnome2 multilib pax-utils python-r1 systemd meson
+inherit gnome2 meson multilib pax-utils python-r1 systemd
 
 DESCRIPTION="Provides core UI functions for the GNOME 3 desktop"
 HOMEPAGE="https://wiki.gnome.org/Projects/GnomeShell"
@@ -13,7 +13,7 @@ LICENSE="GPL-2+ LGPL-2+"
 SLOT="0"
 KEYWORDS="*"
 
-IUSE="+bluetooth browser-extension deprecated-background elogind +ibus +networkmanager nsplugin sassc systemd vanilla-motd vanilla-screen"
+IUSE="+bluetooth browser-extension deprecated-background elogind +ibus +networkmanager nsplugin sassc systemd vanilla-gc vanilla-motd vanilla-screen"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	?? ( elogind systemd )
 "
@@ -121,6 +121,12 @@ DEPEND="${COMMON_DEPEND}
 src_prepare() {
 	if use deprecated-background; then
 		eapply "${FILESDIR}"/${PN}-3.26.1-restore-deprecated-background-code.patch
+	fi
+
+	if ! use vanilla-gc; then
+		# From GNOME:
+		# 	https://gitlab.gnome.org/GNOME/gnome-shell/issues/64
+		eapply "${FILESDIR}"/${PN}-3.14.4-force-garbage-collection.patch
 	fi
 
 	if ! use vanilla-motd; then
