@@ -7,7 +7,6 @@ inherit autotools gnome2 vala
 
 DESCRIPTION="Library providing a virtual terminal emulator widget"
 HOMEPAGE="https://wiki.gnome.org/action/show/Apps/Terminal/VTE"
-SRC_URI="https://git.gnome.org/browse/vte/snapshot/${P}.tar.xz"
 
 LICENSE="LGPL-2+"
 SLOT="2.91"
