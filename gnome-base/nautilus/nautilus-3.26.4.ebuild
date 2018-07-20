@@ -107,7 +107,7 @@ src_prepare() {
 	fi
 
 	if ! use vanilla-rename; then
-		eapply "${FILESDIR}"/${PN}-3.26.3.1-support-slow-double-click-to-rename.patch
+		eapply "${FILESDIR}"/${PN}-3.26.4-support-slow-double-click-to-rename.patch
 	fi
 
 	if ! use vanilla-search; then

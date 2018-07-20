@@ -1,7 +1,7 @@
 diff '--exclude=.git' -urN a/data/org.gnome.nautilus.gschema.xml b/data/org.gnome.nautilus.gschema.xml
---- a/data/org.gnome.nautilus.gschema.xml	2018-03-29 18:27:07.690364731 -0400
-+++ b/data/org.gnome.nautilus.gschema.xml	2018-03-29 18:27:39.129207013 -0400
-@@ -127,6 +127,11 @@
+--- a/data/org.gnome.nautilus.gschema.xml	2018-07-19 14:37:36.000000000 -0400
++++ b/data/org.gnome.nautilus.gschema.xml	2018-07-20 03:49:32.124136325 -0400
+@@ -122,6 +122,11 @@
        <summary>Type of click used to launch/open files</summary>
        <description>Possible values are “single” to launch files on a single click, or “double” to launch them on a double click.</description>
      </key>
@@ -14,8 +14,8 @@ diff '--exclude=.git' -urN a/data/org.gnome.nautilus.gschema.xml b/data/org.gnom
        <default>'display'</default>
        <summary>What to do with executable text files when activated</summary>
 diff '--exclude=.git' -urN a/src/nautilus-canvas-container.c b/src/nautilus-canvas-container.c
---- a/src/nautilus-canvas-container.c	2018-03-25 06:31:26.000000000 -0400
-+++ b/src/nautilus-canvas-container.c	2018-03-29 18:27:39.130207008 -0400
+--- a/src/nautilus-canvas-container.c	2018-07-19 14:37:36.000000000 -0400
++++ b/src/nautilus-canvas-container.c	2018-07-20 03:49:32.125136320 -0400
 @@ -184,6 +184,11 @@
  static void store_layout_timestamps_now (NautilusCanvasContainer *container);
  static void schedule_redo_layout (NautilusCanvasContainer *container);
@@ -187,7 +187,7 @@ diff '--exclude=.git' -urN a/src/nautilus-canvas-container.c b/src/nautilus-canv
      if ((event->button == DRAG_BUTTON || event->button == MIDDLE_BUTTON) &&
          (event->state & GDK_SHIFT_MASK) != 0)
      {
-@@ -7937,6 +8048,15 @@
+@@ -7939,6 +8050,15 @@
      container->details->single_click_mode = single_click_mode;
  }
  
@@ -204,8 +204,8 @@ diff '--exclude=.git' -urN a/src/nautilus-canvas-container.c b/src/nautilus-canv
  gboolean
  nautilus_canvas_container_get_is_fixed_size (NautilusCanvasContainer *container)
 diff '--exclude=.git' -urN a/src/nautilus-canvas-container.h b/src/nautilus-canvas-container.h
---- a/src/nautilus-canvas-container.h	2018-03-25 06:31:26.000000000 -0400
-+++ b/src/nautilus-canvas-container.h	2018-03-29 18:27:39.130207008 -0400
+--- a/src/nautilus-canvas-container.h	2018-07-19 14:37:36.000000000 -0400
++++ b/src/nautilus-canvas-container.h	2018-07-20 03:49:32.125136320 -0400
 @@ -281,6 +281,8 @@
  									   int                     new_zoom_level);
  void              nautilus_canvas_container_set_single_click_mode         (NautilusCanvasContainer  *container,
@@ -216,8 +216,8 @@ diff '--exclude=.git' -urN a/src/nautilus-canvas-container.h b/src/nautilus-canv
  									   gboolean                enable);
  gboolean          nautilus_canvas_container_get_is_fixed_size             (NautilusCanvasContainer  *container);
 diff '--exclude=.git' -urN a/src/nautilus-canvas-private.h b/src/nautilus-canvas-private.h
---- a/src/nautilus-canvas-private.h	2018-03-25 06:31:26.000000000 -0400
-+++ b/src/nautilus-canvas-private.h	2018-03-29 18:27:39.132206998 -0400
+--- a/src/nautilus-canvas-private.h	2018-07-19 14:37:36.000000000 -0400
++++ b/src/nautilus-canvas-private.h	2018-07-20 03:49:32.125136320 -0400
 @@ -27,6 +27,8 @@
  #include "nautilus-canvas-item.h"
  #include "nautilus-canvas-container.h"
@@ -246,8 +246,8 @@ diff '--exclude=.git' -urN a/src/nautilus-canvas-private.h b/src/nautilus-canvas
  	/* Should the container keep icons aligned to a grid */
  	gboolean keep_aligned;
 diff '--exclude=.git' -urN a/src/nautilus-canvas-view-container.c b/src/nautilus-canvas-view-container.c
---- a/src/nautilus-canvas-view-container.c	2018-03-25 06:31:26.000000000 -0400
-+++ b/src/nautilus-canvas-view-container.c	2018-03-29 18:27:39.132206998 -0400
+--- a/src/nautilus-canvas-view-container.c	2018-07-19 14:37:36.000000000 -0400
++++ b/src/nautilus-canvas-view-container.c	2018-07-20 03:49:32.125136320 -0400
 @@ -34,7 +34,7 @@
  
  static GQuark attribute_none_q;
@@ -258,8 +258,8 @@ diff '--exclude=.git' -urN a/src/nautilus-canvas-view-container.c b/src/nautilus
  {
      /* Type unsafe comparison for performance */
 diff '--exclude=.git' -urN a/src/nautilus-canvas-view-container.h b/src/nautilus-canvas-view-container.h
---- a/src/nautilus-canvas-view-container.h	2018-03-25 06:31:26.000000000 -0400
-+++ b/src/nautilus-canvas-view-container.h	2018-03-29 18:27:39.132206998 -0400
+--- a/src/nautilus-canvas-view-container.h	2018-07-19 14:37:36.000000000 -0400
++++ b/src/nautilus-canvas-view-container.h	2018-07-20 03:49:32.125136320 -0400
 @@ -56,6 +56,8 @@
  	NautilusCanvasContainerClass parent_class;
  };
@@ -270,8 +270,8 @@ diff '--exclude=.git' -urN a/src/nautilus-canvas-view-container.h b/src/nautilus
  NautilusCanvasContainer *nautilus_canvas_view_container_construct        (NautilusCanvasViewContainer *canvas_container,
  								      NautilusCanvasView      *view);
 diff '--exclude=.git' -urN a/src/nautilus-canvas-view.c b/src/nautilus-canvas-view.c
---- a/src/nautilus-canvas-view.c	2018-03-25 06:31:26.000000000 -0400
-+++ b/src/nautilus-canvas-view.c	2018-03-29 18:27:39.132206998 -0400
+--- a/src/nautilus-canvas-view.c	2018-07-19 14:37:36.000000000 -0400
++++ b/src/nautilus-canvas-view.c	2018-07-20 03:49:32.125136320 -0400
 @@ -192,6 +192,7 @@
                                                                          NautilusFile        *file,
                                                                          const SortCriterion *sort);
@@ -334,8 +334,8 @@ diff '--exclude=.git' -urN a/src/nautilus-canvas-view.c b/src/nautilus-canvas-vi
      nautilus_files_view_class->sort_directories_first_changed = nautilus_canvas_view_sort_directories_first_changed;
      nautilus_files_view_class->using_manual_layout = nautilus_canvas_view_using_manual_layout;
 diff '--exclude=.git' -urN a/src/nautilus-files-view.c b/src/nautilus-files-view.c
---- a/src/nautilus-files-view.c	2018-03-29 18:27:07.691364726 -0400
-+++ b/src/nautilus-files-view.c	2018-03-29 18:28:52.285840004 -0400
+--- a/src/nautilus-files-view.c	2018-07-19 14:37:36.000000000 -0400
++++ b/src/nautilus-files-view.c	2018-07-20 03:49:32.126136314 -0400
 @@ -41,7 +41,6 @@
  #include "nautilus-properties-window.h"
  #include "nautilus-window.h"
@@ -476,7 +476,7 @@ diff '--exclude=.git' -urN a/src/nautilus-files-view.c b/src/nautilus-files-view
      NautilusFile *file;
      NautilusDirectory *directory;
  } FileAndDirectory;
-@@ -1982,7 +1863,7 @@
+@@ -1944,7 +1825,7 @@
      g_clear_object (&priv->rename_file_controller);
  }
  
@@ -485,7 +485,7 @@ diff '--exclude=.git' -urN a/src/nautilus-files-view.c b/src/nautilus-files-view
  nautilus_files_view_rename_file_popover_new (NautilusFilesView *view,
                                               NautilusFile      *target_file)
  {
-@@ -2746,6 +2627,16 @@
+@@ -2708,6 +2589,16 @@
      NAUTILUS_FILES_VIEW_CLASS (G_OBJECT_GET_CLASS (view))->click_policy_changed (view);
  }
  
@@ -502,7 +502,7 @@ diff '--exclude=.git' -urN a/src/nautilus-files-view.c b/src/nautilus-files-view
  gboolean
  nautilus_files_view_should_sort_directories_first (NautilusFilesView *view)
  {
-@@ -3232,6 +3123,8 @@
+@@ -3194,6 +3085,8 @@
                                            schedule_update_context_menus, view);
      g_signal_handlers_disconnect_by_func (nautilus_preferences,
                                            click_policy_changed_callback, view);
@@ -511,7 +511,7 @@ diff '--exclude=.git' -urN a/src/nautilus-files-view.c b/src/nautilus-files-view
      g_signal_handlers_disconnect_by_func (gtk_filechooser_preferences,
                                            sort_directories_first_changed_callback, view);
      g_signal_handlers_disconnect_by_func (gtk_filechooser_preferences,
-@@ -9733,6 +9626,10 @@
+@@ -9700,6 +9593,10 @@
                                "changed::" NAUTILUS_PREFERENCES_CLICK_POLICY,
                                G_CALLBACK (click_policy_changed_callback),
                                view);
@@ -523,8 +523,8 @@ diff '--exclude=.git' -urN a/src/nautilus-files-view.c b/src/nautilus-files-view
                                "changed::" NAUTILUS_PREFERENCES_SORT_DIRECTORIES_FIRST,
                                G_CALLBACK (sort_directories_first_changed_callback), view);
 diff '--exclude=.git' -urN a/src/nautilus-files-view.h b/src/nautilus-files-view.h
---- a/src/nautilus-files-view.h	2018-03-29 18:19:40.912595691 -0400
-+++ b/src/nautilus-files-view.h	2018-03-29 18:29:29.374653934 -0400
+--- a/src/nautilus-files-view.h	2018-07-19 14:37:36.000000000 -0400
++++ b/src/nautilus-files-view.h	2018-07-20 03:49:32.126136314 -0400
 @@ -42,6 +42,125 @@
  
  G_DECLARE_DERIVABLE_TYPE (NautilusFilesView, nautilus_files_view, NAUTILUS, FILES_VIEW, GtkGrid)
@@ -659,7 +659,7 @@ diff '--exclude=.git' -urN a/src/nautilus-files-view.h b/src/nautilus-files-view
          void        (* sort_directories_first_changed) (NautilusFilesView *view);
  
          /* Get the id for this view. Its a guint*/
-@@ -307,6 +427,9 @@
+@@ -310,6 +430,9 @@
                                                                    int                     copy_action,
                                                                    int                     x,
                                                                    int                     y);
@@ -670,9 +670,9 @@ diff '--exclude=.git' -urN a/src/nautilus-files-view.h b/src/nautilus-files-view
                                                                        const char         *parent_uri,
                                                                        const char         *filename,
 diff '--exclude=.git' -urN a/src/nautilus-global-preferences.h b/src/nautilus-global-preferences.h
---- a/src/nautilus-global-preferences.h	2018-03-29 18:19:40.912595691 -0400
-+++ b/src/nautilus-global-preferences.h	2018-03-29 18:27:39.134206988 -0400
-@@ -55,6 +55,9 @@
+--- a/src/nautilus-global-preferences.h	2018-07-19 14:37:36.000000000 -0400
++++ b/src/nautilus-global-preferences.h	2018-07-20 03:49:32.126136314 -0400
+@@ -52,6 +52,9 @@
  /* Drag and drop preferences */
  #define NAUTILUS_PREFERENCES_OPEN_FOLDER_ON_DND_HOVER   	"open-folder-on-dnd-hover"
  
@@ -683,8 +683,8 @@ diff '--exclude=.git' -urN a/src/nautilus-global-preferences.h b/src/nautilus-gl
  #define NAUTILUS_PREFERENCES_EXECUTABLE_TEXT_ACTIVATION		"executable-text-activation"
  
 diff '--exclude=.git' -urN a/src/nautilus-list-view-private.h b/src/nautilus-list-view-private.h
---- a/src/nautilus-list-view-private.h	2018-03-25 06:31:26.000000000 -0400
-+++ b/src/nautilus-list-view-private.h	2018-03-29 18:27:39.134206988 -0400
+--- a/src/nautilus-list-view-private.h	2018-07-19 14:37:36.000000000 -0400
++++ b/src/nautilus-list-view-private.h	2018-07-20 03:49:32.126136314 -0400
 @@ -39,6 +39,9 @@
  
    GtkTreePath *double_click_path[2]; /* Both clicks in a double click need to be on the same row */
@@ -704,8 +704,8 @@ diff '--exclude=.git' -urN a/src/nautilus-list-view-private.h b/src/nautilus-lis
  };
  
 diff '--exclude=.git' -urN a/src/nautilus-list-view.c b/src/nautilus-list-view.c
---- a/src/nautilus-list-view.c	2018-03-25 06:31:26.000000000 -0400
-+++ b/src/nautilus-list-view.c	2018-03-29 18:27:39.135206983 -0400
+--- a/src/nautilus-list-view.c	2018-07-19 14:37:36.000000000 -0400
++++ b/src/nautilus-list-view.c	2018-07-20 03:52:07.975365793 -0400
 @@ -33,6 +33,8 @@
  #include "nautilus-list-view-dnd.h"
  #include "nautilus-view.h"
@@ -964,7 +964,7 @@ diff '--exclude=.git' -urN a/src/nautilus-list-view.c b/src/nautilus-list-view.c
      view->details->ignore_button_release = FALSE;
      is_simple_click = ((event->button == 1 || event->button == 2) && (event->type == GDK_BUTTON_PRESS));
  
-@@ -573,44 +720,17 @@
+@@ -573,37 +720,17 @@
          view->details->double_click_path[0] = gtk_tree_path_copy (path);
      }
  
@@ -988,16 +988,9 @@ diff '--exclude=.git' -urN a/src/nautilus-list-view.c b/src/nautilus-list-view.c
 -                    nautilus_file_unref (file);
 -                }
 -            }
--            else
+-            else if ((event->button == GDK_BUTTON_PRIMARY || event->button == GDK_BUTTON_SECONDARY))
 -            {
--                if ((event->button == 1 || event->button == 3))
--                {
--                    activate_selected_items (view);
--                }
--                else if (event->button == 2)
--                {
--                    activate_selected_items_alternate (view, NULL, TRUE);
--                }
+-                activate_selected_items (view);
 -            }
 -        }
 -        else
@@ -1014,7 +1007,7 @@ diff '--exclude=.git' -urN a/src/nautilus-list-view.c b/src/nautilus-list-view.c
          /* We're going to filter out some situations where
           * we can't let the default code run because all
           * but one row would be would be deselected. We don't
-@@ -3204,6 +3324,19 @@
+@@ -3210,6 +3337,19 @@
  }
  
  static void
@@ -1034,7 +1027,7 @@ diff '--exclude=.git' -urN a/src/nautilus-list-view.c b/src/nautilus-list-view.c
  nautilus_list_view_click_policy_changed (NautilusFilesView *directory_view)
  {
      GdkWindow *win;
-@@ -3630,6 +3763,7 @@
+@@ -3636,6 +3776,7 @@
      nautilus_files_view_class->get_view_id = nautilus_list_view_get_id;
      nautilus_files_view_class->get_first_visible_file = nautilus_list_view_get_first_visible_file;
      nautilus_files_view_class->scroll_to_file = list_view_scroll_to_file;
@@ -1042,7 +1035,7 @@ diff '--exclude=.git' -urN a/src/nautilus-list-view.c b/src/nautilus-list-view.c
      nautilus_files_view_class->compute_rename_popover_pointing_to = nautilus_list_view_compute_rename_popover_pointing_to;
  }
  
-@@ -3641,6 +3775,9 @@
+@@ -3647,6 +3788,9 @@
  
      list_view->details = g_new0 (NautilusListViewDetails, 1);
  
@@ -1052,7 +1045,7 @@ diff '--exclude=.git' -urN a/src/nautilus-list-view.c b/src/nautilus-list-view.c
      /* ensure that the zoom level is always set before settings up the tree view columns */
      list_view->details->zoom_level = get_default_zoom_level ();
  
-@@ -3672,6 +3809,7 @@
+@@ -3678,6 +3822,7 @@
                        G_CALLBACK (on_clipboard_owner_changed), list_view);
  
      nautilus_list_view_click_policy_changed (NAUTILUS_FILES_VIEW (list_view));
@@ -1061,9 +1054,9 @@ diff '--exclude=.git' -urN a/src/nautilus-list-view.c b/src/nautilus-list-view.c
      nautilus_list_view_set_zoom_level (list_view, get_default_zoom_level ());
  
 diff '--exclude=.git' -urN a/src/nautilus-preferences-window.c b/src/nautilus-preferences-window.c
---- a/src/nautilus-preferences-window.c	2018-03-29 18:19:40.912595691 -0400
-+++ b/src/nautilus-preferences-window.c	2018-03-29 18:27:39.135206983 -0400
-@@ -63,11 +63,15 @@
+--- a/src/nautilus-preferences-window.c	2018-07-19 14:37:36.000000000 -0400
++++ b/src/nautilus-preferences-window.c	2018-07-20 03:49:32.127136310 -0400
+@@ -61,11 +61,15 @@
      "use_new_views_checkbutton"
  #define NAUTILUS_PREFERENCES_FTS_DEFAULT_WIDGET                                \
      "fts_checkbutton"
@@ -1079,7 +1072,7 @@ diff '--exclude=.git' -urN a/src/nautilus-preferences-window.c b/src/nautilus-pr
  static const char * const speed_tradeoff_values[] =
  {
      "local-only", "always", "never",
-@@ -455,6 +459,29 @@
+@@ -453,6 +457,29 @@
      }
  }
  
@@ -1109,7 +1102,7 @@ diff '--exclude=.git' -urN a/src/nautilus-preferences-window.c b/src/nautilus-pr
  static void nautilus_preferences_window_setup(GtkBuilder *builder,
                                                GtkWindow  *parent_window)
  {
-@@ -489,6 +516,9 @@
+@@ -484,6 +511,9 @@
      bind_builder_radio (
          builder, nautilus_preferences, (const char **) click_behavior_components,
          NAUTILUS_PREFERENCES_CLICK_POLICY, (const char **) click_behavior_values);
@@ -1119,7 +1112,7 @@ diff '--exclude=.git' -urN a/src/nautilus-preferences-window.c b/src/nautilus-pr
      bind_builder_radio (builder, nautilus_preferences,
                          (const char **) executable_text_components,
                          NAUTILUS_PREFERENCES_EXECUTABLE_TEXT_ACTIVATION,
-@@ -510,6 +540,10 @@
+@@ -505,6 +535,10 @@
                              NAUTILUS_PREFERENCES_DIALOG_THUMBNAIL_LIMIT_WIDGET,
                              NAUTILUS_PREFERENCES_FILE_THUMBNAIL_LIMIT);
  
@@ -1131,8 +1124,8 @@ diff '--exclude=.git' -urN a/src/nautilus-preferences-window.c b/src/nautilus-pr
      nautilus_preferences_window_setup_icon_caption_page (builder);
      nautilus_preferences_window_setup_list_column_page (builder);
 diff '--exclude=.git' -urN a/src/resources/ui/nautilus-preferences-window.ui b/src/resources/ui/nautilus-preferences-window.ui
---- a/src/resources/ui/nautilus-preferences-window.ui	2018-03-29 18:27:07.691364726 -0400
-+++ b/src/resources/ui/nautilus-preferences-window.ui	2018-03-29 18:27:39.135206983 -0400
+--- a/src/resources/ui/nautilus-preferences-window.ui	2018-07-19 14:37:36.000000000 -0400
++++ b/src/resources/ui/nautilus-preferences-window.ui	2018-07-20 03:49:32.127136310 -0400
 @@ -647,6 +647,23 @@
                      <property name="position">3</property>
                    </packing>
