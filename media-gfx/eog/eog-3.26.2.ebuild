@@ -23,7 +23,7 @@ RDEPEND="
 	>=x11-libs/gtk+-3.22.0:3[introspection,X]
 	>=x11-misc/shared-mime-info-0.20
 
-	>=x11-libs/gdk-pixbuf-2.30.0:2[jpeg?,tiff?]
+	>=x11-libs/gdk-pixbuf-2.36.5:2[jpeg?,tiff?]
 	x11-libs/libX11
 
 	exif? ( >=media-libs/libexif-0.6.14 )
@@ -33,11 +33,12 @@ RDEPEND="
 	svg? ( >=gnome-base/librsvg-2.36.2:2 )
 	xmp? ( media-libs/exempi:2 )
 "
+# libxml2 required for glib-compile-resources
 DEPEND="${RDEPEND}
+	dev-libs/libxml2:2
 	>=dev-util/gtk-doc-am-1.16
-	>=dev-util/intltool-0.50.1
 	dev-util/itstool
-	sys-devel/gettext
+	>=sys-devel/gettext-0.19.7
 	virtual/pkgconfig
 "
 

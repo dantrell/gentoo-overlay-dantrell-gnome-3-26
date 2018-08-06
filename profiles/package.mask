@@ -24,6 +24,7 @@ dev-libs/jsonrpc-glib::gentoo
 dev-libs/libgweather::gentoo
 dev-libs/libgweather::gnome-kit
 dev-libs/template-glib::gentoo
+dev-libs/template-glib::gnome-kit
 dev-python/pygobject::gentoo
 dev-python/pygobject::gnome-kit
 dev-util/anjuta::gentoo
@@ -112,6 +113,7 @@ gnome-extra/gnome-software::gnome-kit
 gnome-extra/gnome-system-monitor::gentoo
 gnome-extra/gnome-system-monitor::gnome-kit
 gnome-extra/gnome-todo::gentoo
+gnome-extra/gnome-todo::gnome-kit
 gnome-extra/gnome-tweak-tool::gentoo
 gnome-extra/gnome-tweak-tool::gnome-kit
 gnome-extra/gnome-user-docs::gentoo
@@ -153,6 +155,7 @@ sys-apps/gnome-disk-utility::gnome-kit
 www-client/epiphany::gentoo
 www-client/epiphany::gnome-kit
 x11-libs/libdazzle::gentoo
+x11-libs/libdazzle::gnome-kit
 x11-libs/vte::gentoo
 x11-libs/vte::gnome-kit
 x11-misc/gpaste::desktop-kit
@@ -164,5 +167,6 @@ x11-themes/adwaita-icon-theme::gnome-kit
 x11-themes/gnome-backgrounds::gentoo
 x11-themes/gnome-backgrounds::gnome-kit
 x11-wm/metacity::gentoo
+x11-wm/metacity::gnome-kit
 x11-wm/mutter::gentoo
 x11-wm/mutter::gnome-kit

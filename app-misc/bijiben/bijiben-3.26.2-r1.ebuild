@@ -14,12 +14,12 @@ KEYWORDS="*"
 IUSE=""
 
 RDEPEND="
-	>=dev-libs/glib-2.28:2
+	>=dev-libs/glib-2.53.4:2
 	>=x11-libs/gtk+-3.11.4:3
 	>=gnome-extra/evolution-data-server-3.13.90:=
 	>=net-libs/webkit-gtk-2.10.0:4
 	net-libs/gnome-online-accounts:=
-	dev-libs/libxml2
+	dev-libs/libxml2:2
 	>=app-misc/tracker-2:=
 	sys-apps/util-linux
 "
