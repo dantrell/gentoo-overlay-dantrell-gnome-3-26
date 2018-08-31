@@ -20,6 +20,7 @@ dev-libs/gobject-introspection-common::gentoo
 dev-libs/gobject-introspection-common::gnome-kit
 dev-libs/gobject-introspection::gentoo
 dev-libs/gobject-introspection::gnome-kit
+dev-libs/jsonrpc-glib::dev-kit
 dev-libs/jsonrpc-glib::gentoo
 dev-libs/libgweather::gentoo
 dev-libs/libgweather::gnome-kit

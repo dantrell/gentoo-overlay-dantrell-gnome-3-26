@@ -2,7 +2,7 @@
 
 EAPI="6"
 
-inherit gnome2 meson virtualx
+inherit gnome2 meson xdg virtualx
 
 DESCRIPTION="GNOME webbrowser based on Webkit"
 HOMEPAGE="https://wiki.gnome.org/Apps/Web"
@@ -38,8 +38,10 @@ RDEPEND="${COMMON_DEPEND}
 	x11-themes/adwaita-icon-theme
 "
 # paxctl needed for bug #407085
+# appstream-glib needed for appdata.xml gettext translation
 DEPEND="${COMMON_DEPEND}
 	app-text/yelp-tools
+	dev-libs/appstream-glib
 	dev-util/gdbus-codegen
 	sys-apps/paxctl
 	>=sys-devel/gettext-0.19.8
@@ -61,11 +63,13 @@ src_test() {
 }
 
 pkg_postinst() {
+	xdg_pkg_postinst
 	gnome2_icon_cache_update
 	gnome2_schemas_update
 }
 
 pkg_postrm() {
+	xdg_pkg_postrm
 	gnome2_icon_cache_update
 	gnome2_schemas_update
 }

@@ -5,8 +5,8 @@ VALA_USE_DEPEND="vapigen"
 
 inherit gnome2 meson multilib-minimal vala
 
-DESCRIPTION="JSON RPC GLIB"
-HOMEPAGE="https://wiki.gnome.org/Projects/JsonGlib"
+DESCRIPTION="JSON-RPC library for GLib"
+HOMEPAGE="https://gitlab.gnome.org/GNOME/jsonrpc-glib"
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
