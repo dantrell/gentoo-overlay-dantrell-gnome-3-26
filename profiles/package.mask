@@ -22,6 +22,8 @@ dev-libs/gobject-introspection::gentoo
 dev-libs/gobject-introspection::gnome-kit
 dev-libs/jsonrpc-glib::dev-kit
 dev-libs/jsonrpc-glib::gentoo
+dev-libs/libdazzle::dev-kit
+dev-libs/libdazzle::gentoo
 dev-libs/libgweather::gentoo
 dev-libs/libgweather::gnome-kit
 dev-libs/template-glib::gentoo
@@ -155,8 +157,6 @@ sys-apps/gnome-disk-utility::gentoo
 sys-apps/gnome-disk-utility::gnome-kit
 www-client/epiphany::gentoo
 www-client/epiphany::gnome-kit
-x11-libs/libdazzle::gentoo
-x11-libs/libdazzle::gnome-kit
 x11-libs/vte::gentoo
 x11-libs/vte::gnome-kit
 x11-misc/gpaste::desktop-kit

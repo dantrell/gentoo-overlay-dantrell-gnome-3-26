@@ -62,7 +62,7 @@ PDEPEND="
 	gnome? ( x11-themes/adwaita-icon-theme )
 	previewer? ( >=gnome-extra/sushi-0.1.9 )
 	sendto? ( >=gnome-extra/nautilus-sendto-3.0.1 )
-	>=gnome-base/gvfs-1.14[gtk]
+	>=gnome-base/gvfs-1.14[gtk(+)]
 	>=media-video/totem-$(get_version_component_range 1-2)[vanilla-thumbnailer=]
 	!vanilla-thumbnailer? ( media-video/ffmpegthumbnailer )
 "

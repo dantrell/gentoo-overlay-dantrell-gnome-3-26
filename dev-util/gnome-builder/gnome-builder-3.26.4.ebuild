@@ -60,7 +60,7 @@ RDEPEND="
 	dev-libs/libpcre:3
 	${PYTHON_DEPS}
 	vala? ( $(vala_depend) )
-	>=x11-libs/libdazzle-3.25
+	>=dev-libs/libdazzle-3.25
 	>=dev-libs/template-glib-3.25
 	>=dev-libs/jsonrpc-glib-3.25
 	dev-util/devhelp

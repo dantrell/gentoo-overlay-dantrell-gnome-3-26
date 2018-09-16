@@ -1,7 +1,7 @@
-From 8b5ab5d0a5d22d1dcf3962ee6910e88f241d3f14 Mon Sep 17 00:00:00 2001
+From e9abf627a9b84845c03e31185b00d6b4a8472050 Mon Sep 17 00:00:00 2001
 From: Sven Eden <yamakuzure@gmx.net>
 Date: Tue, 10 Oct 2017 11:54:22 +0200
-Subject: [PATCH 6/6] Enable support for elogind, substituting systemd-login on
+Subject: [PATCH 2/2] Enable support for elogind, substituting systemd-login on
  demand
 
 Users who wish to use modern systems, but without using systemd as
@@ -33,7 +33,7 @@ enabled, configure now checks for libelogind and uses that instead.
  3 files changed, 25 insertions(+), 1 deletion(-)
 
 diff --git a/configure.ac b/configure.ac
-index c1b078af..41b5a1ad 100644
+index d4e2a424..0f062750 100644
 --- a/configure.ac
 +++ b/configure.ac
 @@ -312,6 +312,27 @@ fi
@@ -64,14 +64,14 @@ index c1b078af..41b5a1ad 100644
  dnl **************************************************
  dnl *** Check if we should build with CDDA backend ***
  dnl **************************************************
-@@ -937,6 +958,7 @@ echo "
+@@ -834,6 +855,7 @@ echo "
  	Build GOA volume monitor:     $msg_goa
          Use systemd user units:       $msg_systemd_user_units
          Use libsystemd-login:         $msg_libsystemd_login
 +        Use libelogind:               $msg_libelogind
          Use GCR:                      $msg_gcr
  	GNOME Keyring support:        $msg_keyring
- 	GTK+ support:                 $msg_gtk
+ 	Installed tests:              $msg_installed_tests
 diff --git a/monitor/udisks2/Makefile.am b/monitor/udisks2/Makefile.am
 index 052fac59..690b0098 100644
 --- a/monitor/udisks2/Makefile.am

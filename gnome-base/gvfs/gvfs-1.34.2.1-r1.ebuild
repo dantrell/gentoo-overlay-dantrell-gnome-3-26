@@ -41,7 +41,7 @@ RDEPEND="
 	gnome-keyring? ( app-crypt/libsecret )
 	gnome-online-accounts? ( >=net-libs/gnome-online-accounts-3.7.1:= )
 	google? (
-		>=dev-libs/libgdata-0.17.7:=[crypt,gnome-online-accounts]
+		>=dev-libs/libgdata-0.17.9:=[crypt,gnome-online-accounts]
 		>=net-libs/gnome-online-accounts-3.17.1:= )
 	gphoto2? ( >=media-libs/libgphoto2-2.5.0:= )
 	gtk? ( >=x11-libs/gtk+-3.0:3 )
@@ -73,7 +73,7 @@ DEPEND="${RDEPEND}
 	dev-util/gdbus-codegen
 	dev-util/gtk-doc-am
 	test? (
-		>=dev-python/twisted-core-12.3.0
+		>=dev-python/twisted-16
 		|| (
 			net-analyzer/netcat
 			net-analyzer/netcat6 ) )
@@ -84,7 +84,7 @@ DEPEND="${RDEPEND}
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.30.2-sysmacros.patch #580234
-	"${FILESDIR}"/rollup #599482
+	"${FILESDIR}"/rollup # origin/gnome-3-26@20180912 + elogind support (requires eautoreconf)
 )
 
 src_prepare() {

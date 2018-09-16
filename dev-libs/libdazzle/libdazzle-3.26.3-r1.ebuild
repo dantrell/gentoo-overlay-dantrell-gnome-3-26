@@ -8,7 +8,7 @@ VALA_USE_DEPEND="vapigen"
 inherit gnome2 meson multilib python-r1 vala
 
 DESCRIPTION="Companion library to GObject and GTK+"
-HOMEPAGE="https://github.com/chergert/libdazzle"
+HOMEPAGE="https://gitlab.gnome.org/GNOME/libdazzle"
 
 LICENSE="LGPL-2+"
 SLOT="0"
