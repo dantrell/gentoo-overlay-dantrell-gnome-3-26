@@ -17,6 +17,7 @@ KEYWORDS="*"
 IUSE="+vala"
 
 RDEPEND="
+	!x11-libs/libdazzle
 	x11-libs/gtk+:3
 	dev-libs/gobject-introspection:=
 	vala? ( $(vala_depend) )
