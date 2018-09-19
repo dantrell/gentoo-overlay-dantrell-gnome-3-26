@@ -13,7 +13,7 @@ LICENSE="LGPL-2.1+"
 SLOT="3"
 KEYWORDS="*"
 
-IUSE="+cairo test +threads"
+IUSE="+cairo test"
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
 	test? ( cairo )
@@ -40,7 +40,7 @@ DEPEND="${COMMON_DEPEND}
 		x11-libs/pango[introspection]
 		python_targets_python2_7? ( dev-python/pyflakes[$(python_gen_usedep python2_7)] ) )
 "
-# gnome-base/gnome-common required by eautoreconf
+# autoconf-archive required by eautoreconf
 
 # We now disable introspection support in slot 2 per upstream recommendation
 # (see https://bugzilla.gnome.org/show_bug.cgi?id=642048#c9); however,
@@ -52,15 +52,6 @@ RDEPEND="${COMMON_DEPEND}
 "
 
 src_prepare() {
-	# Test fail with xvfb but not X
-	sed -e 's/^.*TEST_NAMES=compat_test_pygtk .*;/echo "Test disabled";/' \
-		-i tests/Makefile.{am,in} || die
-
-	# FAIL: test_cairo_font_options (test_cairo.TestPango)
-	# AssertionError: <type 'cairo.SubpixelOrder'> != <type 'int'>
-	sed -e 's/^.*type(font_opts.get_subpixel_order()), int.*/#/' \
-		-i tests/test_cairo.py || die
-
 	gnome2_src_prepare
 	python_copy_sources
 }
@@ -71,8 +62,7 @@ src_configure() {
 	# docs disabled by upstream default since they are very out of date
 	configuring() {
 		gnome2_src_configure \
-			$(use_enable cairo) \
-			$(use_enable threads thread)
+			$(use_enable cairo)
 
 		# Pyflakes tests work only in python2, bug #516744
 		if use test && [[ ${EPYTHON} != python2.7 ]]; then
