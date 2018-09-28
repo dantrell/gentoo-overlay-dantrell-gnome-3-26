@@ -68,6 +68,8 @@ gnome-base/gnome-desktop::gentoo
 gnome-base/gnome-desktop::gnome-kit
 gnome-base/gnome-extra-apps::gentoo
 gnome-base/gnome-extra-apps::gnome-kit
+gnome-base/gnome-flashback::gentoo
+gnome-base/gnome-flashback::gnome-kit
 gnome-base/gnome-light::gentoo
 gnome-base/gnome-light::gnome-kit
 gnome-base/gnome-session::gentoo
