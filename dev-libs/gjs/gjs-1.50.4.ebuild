@@ -15,7 +15,7 @@ IUSE="+cairo examples gtk test"
 
 RDEPEND="
 	>=dev-libs/glib-2.52.1
-	>=dev-libs/gobject-introspection-1.52.1:=
+	>=dev-libs/gobject-introspection-1.53.4:=
 
 	sys-libs/readline:0=
 	dev-lang/spidermonkey:52
@@ -30,11 +30,6 @@ DEPEND="${RDEPEND}
 	test? ( sys-apps/dbus )
 "
 
-PATCHES=(
-	# Disable unittest failing without pt_BR locale, upstream bug #????
-	"${FILESDIR}"/${PN}-1.50.2-disable-unittest.patch
-)
-
 src_configure() {
 	# FIXME: add systemtap/dtrace support, like in glib:2
 	# FIXME: --enable-systemtap installs files in ${D}/${D} for some reason
@@ -47,10 +42,6 @@ src_configure() {
 		$(use_with gtk) \
 		$(use_with test dbus-tests) \
 		$(use_with test xvfb-tests)
-}
-
-src_test() {
-	virtx emake check
 }
 
 src_install() {

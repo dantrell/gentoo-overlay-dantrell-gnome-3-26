@@ -17,7 +17,7 @@ RDEPEND="
 	>=dev-libs/gjs-1.29
 	dev-libs/gobject-introspection:=
 	gnome-base/gnome-menus:3[introspection]
-	>=gnome-base/gnome-shell-3.26
+	=gnome-base/gnome-shell-3.26*
 	media-libs/clutter:1.0[introspection]
 	x11-libs/pango[introspection]
 "

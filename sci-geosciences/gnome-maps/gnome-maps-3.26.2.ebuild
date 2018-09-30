@@ -18,7 +18,7 @@ COMMON_DEPEND="
 	>=dev-libs/folks-0.10
 	>=dev-libs/gjs-1.44.0
 	>=dev-libs/gobject-introspection-0.10.1:=
-	>=dev-libs/glib-2.39.3:2
+	>=dev-libs/glib-2.44.0:2
 	>=dev-libs/libgee-0.16:0.8[introspection]
 	dev-libs/libxml2:2
 	>=media-libs/libchamplain-0.12.14:0.12[gtk,introspection]

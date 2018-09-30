@@ -49,7 +49,7 @@ RDEPEND="
 	>=dev-libs/libpeas-1.21[python,${PYTHON_USEDEP}]
 	>=dev-libs/json-glib-1.2.0
 	>=app-text/gspell-1.2.0
-	>=app-text/enchant-1.6.0
+	>=app-text/enchant-1.6.0:0=
 	webkit? ( >=net-libs/webkit-gtk-2.12.0:4=[introspection] )
 	clang? ( sys-devel/clang:= )
 	git? (
