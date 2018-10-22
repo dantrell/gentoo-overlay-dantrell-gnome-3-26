@@ -20,7 +20,7 @@ RDEPEND="
 	x11-libs/gtk+:3[introspection?]
 	introspection? ( dev-libs/gobject-introspection:= )
 "
-# libxml2 required for glib-compile-resources; glib-utils for glib-mkenums
+# libxml2 required for glib-compile-resources
 DEPEND="${RDEPEND}
 	vala? ( $(vala_depend) )
 	dev-libs/libxml2:2
