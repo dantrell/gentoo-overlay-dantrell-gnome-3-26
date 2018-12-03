@@ -30,14 +30,13 @@ RDEPEND="
 	nautilus? ( >=gnome-base/nautilus-3[-vanilla-menu-compress] )
 	packagekit? ( app-admin/packagekit-base )
 "
+# libxml2 required for glib-compile-resources
 DEPEND="${RDEPEND}
-	>=dev-util/intltool-0.50.1
+	dev-libs/libxml2:2
 	dev-util/itstool
-	sys-devel/gettext
+	>=sys-devel/gettext-0.19.8
 	virtual/pkgconfig
 "
-# eautoreconf needs:
-#	gnome-base/gnome-common
 
 DISABLE_AUTOFORMATTING="yes"
 DOC_CONTENTS="

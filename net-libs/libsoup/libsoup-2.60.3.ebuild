@@ -28,8 +28,8 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	${PYTHON_DEPS}
-	>=dev-util/intltool-0.35
 	>=dev-util/gtk-doc-am-1.20
+	>=dev-util/intltool-0.35
 	sys-devel/gettext
 	>=virtual/pkgconfig-0-r1[${MULTILIB_USEDEP}]
 	test? ( >=dev-libs/glib-2.40:2[${MULTILIB_USEDEP}] )

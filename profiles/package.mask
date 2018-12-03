@@ -20,9 +20,8 @@ dev-libs/gobject-introspection-common::gentoo
 dev-libs/gobject-introspection-common::gnome-kit
 dev-libs/gobject-introspection::gentoo
 dev-libs/gobject-introspection::gnome-kit
-dev-libs/jsonrpc-glib::dev-kit
 dev-libs/jsonrpc-glib::gentoo
-dev-libs/libdazzle::dev-kit
+dev-libs/jsonrpc-glib::gnome-kit
 dev-libs/libdazzle::gentoo
 dev-libs/libgweather::gentoo
 dev-libs/libgweather::gnome-kit
@@ -34,7 +33,6 @@ dev-util/anjuta::gentoo
 dev-util/anjuta::gnome-kit
 dev-util/devhelp::gentoo
 dev-util/devhelp::gnome-kit
-dev-util/gnome-builder::dev-kit
 dev-util/gnome-builder::gentoo
 dev-util/gnome-devel-docs::gentoo
 dev-util/gnome-devel-docs::gnome-kit

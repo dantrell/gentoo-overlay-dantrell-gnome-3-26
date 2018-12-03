@@ -26,7 +26,7 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	dev-libs/appstream-glib
 	dev-util/gdbus-codegen
-	>=dev-util/intltool-0.40.6
-	sys-devel/gettext
+	>=dev-util/meson-0.42.0
+	>=sys-devel/gettext-0.19.8
 	virtual/pkgconfig
 "
