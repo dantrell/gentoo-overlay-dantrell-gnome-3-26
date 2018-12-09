@@ -24,8 +24,8 @@ VALA_DEPEND="
 "
 # Configure is wrong; it needs cheese-3.5.91, not 3.3.91
 RDEPEND="
-	>=dev-libs/folks-0.9.5:=[eds,telepathy]
-	>=dev-libs/glib-2.37.6:2
+	>=dev-libs/folks-0.11.4:=[eds,telepathy]
+	>=dev-libs/glib-2.44.0:2
 	>=dev-libs/libgee-0.10:0.8
 	>=gnome-extra/evolution-data-server-3.13.90:=[gnome-online-accounts]
 	>=gnome-base/gnome-desktop-3.0:3=
@@ -33,7 +33,7 @@ RDEPEND="
 	media-libs/clutter-gtk:1.0
 	media-libs/libchamplain:0.12
 	net-libs/gnome-online-accounts:=[vala]
-	>=net-libs/telepathy-glib-0.17.5
+	>=net-libs/telepathy-glib-0.22.0
 	>=sci-geosciences/geocode-glib-3.15.3
 	x11-libs/cairo:=
 	x11-libs/gdk-pixbuf:2
@@ -46,8 +46,7 @@ DEPEND="${RDEPEND}
 	app-text/docbook-xml-dtd:4.2
 	app-text/docbook-xsl-stylesheets
 	dev-libs/libxslt
-	>=dev-util/intltool-0.40
-	>=sys-devel/gettext-0.17
+	>=sys-devel/gettext-0.19.7
 	virtual/pkgconfig
 "
 

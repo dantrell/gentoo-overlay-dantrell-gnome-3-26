@@ -5,7 +5,6 @@ app-accessibility/orca::gnome-kit
 app-arch/file-roller::gentoo
 app-arch/file-roller::gnome-kit
 app-editors/latexila::gentoo
-app-editors/latexila::gnome-kit
 app-misc/bijiben::gentoo
 app-misc/bijiben::gnome-kit
 app-misc/gnote::gentoo
@@ -23,6 +22,7 @@ dev-libs/gobject-introspection::gnome-kit
 dev-libs/jsonrpc-glib::gentoo
 dev-libs/jsonrpc-glib::gnome-kit
 dev-libs/libdazzle::gentoo
+dev-libs/libdazzle::gnome-kit
 dev-libs/libgweather::gentoo
 dev-libs/libgweather::gnome-kit
 dev-libs/template-glib::gentoo
@@ -34,6 +34,7 @@ dev-util/anjuta::gnome-kit
 dev-util/devhelp::gentoo
 dev-util/devhelp::gnome-kit
 dev-util/gnome-builder::gentoo
+dev-util/gnome-builder::gnome-kit
 dev-util/gnome-devel-docs::gentoo
 dev-util/gnome-devel-docs::gnome-kit
 games-board/gnome-chess::gentoo
@@ -118,7 +119,6 @@ gnome-extra/gnome-system-monitor::gnome-kit
 gnome-extra/gnome-todo::gentoo
 gnome-extra/gnome-todo::gnome-kit
 gnome-extra/gnome-tweak-tool::gentoo
-gnome-extra/gnome-tweak-tool::gnome-kit
 gnome-extra/gnome-user-docs::gentoo
 gnome-extra/gnome-user-docs::gnome-kit
 gnome-extra/yelp::gentoo
