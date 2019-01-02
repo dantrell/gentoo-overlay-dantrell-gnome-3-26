@@ -20,7 +20,7 @@ COMMON_DEPEND="
 	>=gnome-base/gnome-desktop-2.91.6:3=
 	>=media-libs/libcanberra-0.26[gtk3]
 	>=media-libs/clutter-1.13.2:1.0[introspection?]
-	>=media-libs/clutter-gtk-0.91.8:1.0
+	>=media-libs/clutter-gtk-1:1.0
 	media-libs/clutter-gst:3.0
 	media-libs/cogl:1.0=[introspection?]
 
@@ -42,6 +42,7 @@ RDEPEND="${COMMON_DEPEND}
 	>=media-plugins/gst-plugins-v4l2-1.4:1.0
 	>=media-plugins/gst-plugins-vpx-1.4:1.0
 "
+# libxml2+gdk-pixbuf required for glib-compile-resources
 DEPEND="${COMMON_DEPEND}
 	$(vala_depend)
 	app-text/docbook-xml-dtd:4.3
@@ -49,7 +50,6 @@ DEPEND="${COMMON_DEPEND}
 	dev-libs/appstream-glib
 	dev-libs/libxml2:2
 	dev-libs/libxslt
-	dev-util/gdbus-codegen
 	>=dev-util/gtk-doc-am-1.14
 	>=dev-util/intltool-0.50
 	dev-util/itstool
@@ -72,6 +72,5 @@ src_configure() {
 }
 
 src_test() {
-	"${EROOT}${GLIB_COMPILE_SCHEMAS}" --allow-any-name "${S}/data" || die
-	GSETTINGS_SCHEMA_DIR="${S}/data" virtx emake check
+	virtx emake check
 }
