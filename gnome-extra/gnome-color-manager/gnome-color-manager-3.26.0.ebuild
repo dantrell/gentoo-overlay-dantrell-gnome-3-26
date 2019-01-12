@@ -41,6 +41,9 @@ DEPEND="${RDEPEND}
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-3.26.0-fix-libm-check.patch
+
+	# https://gitlab.gnome.org/GNOME/gnome-color-manager/issues/4
+	"${FILESDIR}"/${PN}-3.24.0-exiv2-0.27.patch # bug 674086
 )
 
 src_configure() {
