@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python{3_4,3_5,3_6,3_7} )
 inherit gnome2 python-single-r1 meson
 
 DESCRIPTION="Tool to customize GNOME 3 options"
-HOMEPAGE="https://wiki.gnome.org/action/show/Apps/GnomeTweakTool"
+HOMEPAGE="https://wiki.gnome.org/Apps/Tweaks"
 
 LICENSE="GPL-2+"
 SLOT="0"

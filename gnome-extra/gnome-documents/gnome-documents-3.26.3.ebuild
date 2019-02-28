@@ -17,14 +17,13 @@ IUSE=""
 COMMON_DEPEND="
 	>=app-text/evince-3.13.3[introspection]
 	>=net-libs/webkit-gtk-2.6:4[introspection]
-	dev-libs/gjs
+	>=dev-libs/gjs-1.48.0
 	>=dev-libs/glib-2.39.3:2
 	>=dev-libs/gobject-introspection-1.31.6:=
-	>=x11-libs/gtk+-3.22.10:3[introspection]
+	>=x11-libs/gtk+-3.22.15:3[introspection]
 	>=net-libs/libsoup-2.41.3:2.4
 	gnome-base/gnome-desktop:3=[introspection]
 	>=app-misc/tracker-2:=[miner-fs]
-	>=app-misc/tracker-miners-2:=
 	>=x11-libs/cairo-1.14
 	>=dev-libs/libgdata-0.13.3:=[crypt,gnome-online-accounts,introspection]
 	x11-libs/gdk-pixbuf:2[introspection]
@@ -34,14 +33,15 @@ COMMON_DEPEND="
 	>=app-text/libgepub-0.5[introspection]
 "
 RDEPEND="${COMMON_DEPEND}
+	>=app-misc/tracker-miners-2:=
 	net-misc/gnome-online-miners
 	sys-apps/dbus
 	x11-themes/adwaita-icon-theme
 "
 DEPEND="${COMMON_DEPEND}
 	dev-libs/libxslt
-	>=dev-util/intltool-0.50.1
+	>=sys-devel/gettext-0.19.8
 	dev-util/itstool
 	virtual/pkgconfig
 "
-# eautoreconf requires yelp-tools
+# eautoreconf requires yelp-tools and autoconf-archive

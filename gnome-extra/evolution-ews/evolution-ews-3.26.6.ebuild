@@ -22,7 +22,7 @@ RDEPEND="
 	>=dev-libs/glib-2.46:2
 	dev-libs/libical:0=
 	>=dev-libs/libmspack-0.4
-	>=dev-libs/libxml2-2
+	dev-libs/libxml2:2
 	>=gnome-extra/evolution-data-server-${PV}:0=
 	>=mail-client/evolution-${PV}:2.0
 	>=net-libs/libsoup-2.42:2.4
