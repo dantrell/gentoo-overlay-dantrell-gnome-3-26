@@ -36,7 +36,6 @@ DEPEND="${RDEPEND}
 PATCHES=(
 	# disable teamspaces test since that requires Novell.ICEDesktop.Daemon
 	"${FILESDIR}"/${PN}-2.0.2-disable-teamspaces-test.patch
-	"${FILESDIR}"/${PN}-2.26.2-fix-inverted-logic.patch
 )
 
 multilib_src_configure() {
