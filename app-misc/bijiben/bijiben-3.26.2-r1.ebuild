@@ -36,7 +36,7 @@ DEPEND="${RDEPEND}
 
 src_prepare() {
 	# From Fedora:
-	# 	http://pkgs.fedoraproject.org/cgit/rpms/bijiben.git/tree/bijiben.spec?h=f27
+	# 	https://src.fedoraproject.org/cgit/rpms/bijiben.git/tree/bijiben.spec?h=f27
 	sed -i -e 's/tracker-sparql-1\.0/tracker-sparql-2.0/g' configure
 
 	# From GNOME:

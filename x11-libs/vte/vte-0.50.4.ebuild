@@ -2,6 +2,8 @@
 
 EAPI="6"
 VALA_USE_DEPEND="vapigen"
+VALA_MIN_API_VERSION="0.32"
+VALA_MAX_API_VERSION="0.42"
 
 inherit autotools gnome2 vala
 
