@@ -2,7 +2,7 @@
 
 EAPI="6"
 
-inherit gnome2 udev user meson
+inherit gnome2 udev meson
 
 DESCRIPTION="Bluetooth graphical utilities integrated with GNOME"
 HOMEPAGE="https://wiki.gnome.org/Projects/GnomeBluetooth"
@@ -22,6 +22,7 @@ COMMON_DEPEND="
 	introspection? ( >=dev-libs/gobject-introspection-0.9.5:= )
 "
 RDEPEND="${COMMON_DEPEND}
+	acct-group/plugdev
 	>=net-wireless/bluez-5
 "
 DEPEND="${COMMON_DEPEND}
@@ -36,10 +37,6 @@ DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig
 	x11-base/xorg-proto
 "
-
-pkg_setup() {
-	enewgroup plugdev
-}
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-3.26.1-fix-post-install.patch
