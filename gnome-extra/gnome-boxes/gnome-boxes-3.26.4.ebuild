@@ -44,7 +44,7 @@ RDEPEND="
 	>=net-libs/libsoup-2.44:2.4
 
 	sys-fs/mtools
-	>=virtual/libgudev-165:=
+	>=dev-libs/libgudev-165:=
 "
 #	!bindist? ( gnome-extra/gnome-boxes-nonfree )
 
