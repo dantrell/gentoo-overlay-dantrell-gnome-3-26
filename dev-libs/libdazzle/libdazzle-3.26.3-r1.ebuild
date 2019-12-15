@@ -14,6 +14,8 @@ KEYWORDS="*"
 
 IUSE="doc introspection test +vala"
 
+RESTRICT="!test? ( test )"
+
 RDEPEND="
 	!x11-libs/libdazzle
 
