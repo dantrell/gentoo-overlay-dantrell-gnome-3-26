@@ -12,7 +12,7 @@ VALA_USE_DEPEND="vapigen"
 
 inherit gnome2 python-single-r1 vala virtualx readme.gentoo-r1 meson
 
-DESCRIPTION="Builder attempts to be an IDE for writing software for GNOME"
+DESCRIPTION="An IDE for writing GNOME-based software"
 HOMEPAGE="https://wiki.gnome.org/Apps/Builder"
 
 # FIXME: Review licenses at some point
@@ -46,7 +46,7 @@ RDEPEND="
 	>=dev-python/pygobject-3.22.0:3
 	>=dev-libs/libxml2-2.9.0
 	>=x11-libs/pango-1.38.0
-	>=dev-libs/libpeas-1.21[python,${PYTHON_USEDEP}]
+	>=dev-libs/libpeas-1.21[python,${PYTHON_SINGLE_USEDEP}]
 	>=dev-libs/json-glib-1.2.0
 	>=app-text/gspell-1.2.0
 	>=app-text/enchant-1.6.0:0=
