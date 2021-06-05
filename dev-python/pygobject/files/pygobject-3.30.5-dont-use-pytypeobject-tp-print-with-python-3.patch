@@ -1,0 +1,31 @@
+From bbe2e94bb66b5e263655083dd6ed6bb878e21b74 Mon Sep 17 00:00:00 2001
+From: Christoph Reiter <reiter.christoph@gmail.com>
+Date: Fri, 7 Jun 2019 16:31:23 +0200
+Subject: [PATCH] Don't use PyTypeObject.tp_print with Python 3
+
+It was only used with Python 2 and unused/reserved with Python 3.
+Python 3.8 has renamed the slot and is now using it for something different
+which breaks our build.
+---
+ gi/pygobject-object.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/gi/pygobject-object.c b/gi/pygobject-object.c
+index dbf46e1e..39c03ca3 100644
+--- a/gi/pygobject-object.c
++++ b/gi/pygobject-object.c
+@@ -878,7 +878,10 @@ pygobject_inherit_slots(PyTypeObject *type, PyObject *bases, gboolean check_for_
+                                   offsetof(PyTypeObject, tp_iter),
+                                   offsetof(PyTypeObject, tp_repr),
+                                   offsetof(PyTypeObject, tp_str),
+-                                  offsetof(PyTypeObject, tp_print) };
++#if PY_VERSION_HEX < 0x03000000
++                                  offsetof(PyTypeObject, tp_print),
++#endif
++    };
+     gsize i;
+ 
+     /* Happens when registering gobject.GObject itself, at least. */
+-- 
+GitLab
+
