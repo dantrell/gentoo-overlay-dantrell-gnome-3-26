@@ -6,7 +6,7 @@ PYTHON_COMPAT=( python{3_8,3_9,3_10} )
 
 inherit gnome2 meson multilib pax-utils python-r1 systemd
 
-DESCRIPTION="Provides core UI functions for the GNOME 3 desktop"
+DESCRIPTION="Provides core UI functions for the GNOME desktop"
 HOMEPAGE="https://wiki.gnome.org/Projects/GnomeShell"
 
 LICENSE="GPL-2+ LGPL-2+"

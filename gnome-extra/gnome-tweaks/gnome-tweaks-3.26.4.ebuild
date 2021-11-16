@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python{3_8,3_9,3_10} )
 
 inherit gnome2 python-single-r1 meson
 
-DESCRIPTION="Customize advanced GNOME 3 options"
+DESCRIPTION="Customize advanced GNOME options"
 HOMEPAGE="https://wiki.gnome.org/Apps/Tweaks"
 
 LICENSE="GPL-2+"
@@ -21,7 +21,7 @@ COMMON_DEPEND="
 	${PYTHON_DEPS}
 	dev-libs/glib:2[dbus]
 	$(python_gen_cond_dep '
-		>=dev-python/pygobject-3.10.2:3[${PYTHON_MULTI_USEDEP}]
+		>=dev-python/pygobject-3.10.2:3[${PYTHON_USEDEP}]
 	')
 	>=gnome-base/gsettings-desktop-schemas-3.23.3
 "

@@ -4,7 +4,7 @@ EAPI="6"
 
 inherit autotools gnome2 virtualx
 
-DESCRIPTION="GNOME 3 compositing window manager based on Clutter"
+DESCRIPTION="GNOME compositing window manager based on Clutter"
 HOMEPAGE="https://gitlab.gnome.org/GNOME/mutter"
 
 LICENSE="GPL-2+"
@@ -54,7 +54,7 @@ COMMON_DEPEND="
 	x11-misc/xkeyboard-config
 
 	gnome-extra/zenity
-	>=media-libs/mesa-17.2.0[X(+),egl,gles2?]
+	>=media-libs/mesa-17.2.0[X(+),egl(+),gles2?]
 
 	gles2? ( media-libs/mesa[gles2] )
 	input_devices_wacom? ( >=dev-libs/libwacom-0.13 )
@@ -64,7 +64,7 @@ COMMON_DEPEND="
 		>=dev-libs/libinput-1.4
 		>=dev-libs/wayland-1.6.90
 		>=dev-libs/wayland-protocols-1.9
-		>=media-libs/mesa-10.3[egl,gbm,wayland]
+		>=media-libs/mesa-10.3[egl(+),gbm(+),wayland]
 		|| ( sys-auth/elogind sys-apps/systemd )
 		>=dev-libs/libgudev-232:=
 		>=virtual/libudev-136:=
