@@ -1,6 +1,6 @@
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="6"
+EAPI="7"
 VALA_MAX_API_VERSION="0.40"
 
 inherit gnome2 vala meson
@@ -12,9 +12,9 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="*"
 
-IUSE="+colord packagekit"
+IUSE="+colord"
 
-COMMON_DEPEND="
+DEPEND="
 	>=dev-libs/glib-2.32:2
 	dev-libs/libgusb:=[vala]
 	>=media-gfx/sane-backends-1.0.20:=
@@ -23,13 +23,12 @@ COMMON_DEPEND="
 	x11-libs/cairo:=
 	>=x11-libs/gtk+-3:3
 	colord? ( >=x11-misc/colord-0.1.24:=[udev,vala] )
-	packagekit? ( app-admin/packagekit-base )
 "
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	x11-misc/xdg-utils
 	x11-themes/adwaita-icon-theme
 "
-DEPEND="${COMMON_DEPEND}
+BDEPEND="
 	$(vala_depend)
 	app-text/yelp-tools
 	dev-libs/appstream-glib

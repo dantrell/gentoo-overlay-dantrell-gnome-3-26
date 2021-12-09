@@ -11,7 +11,7 @@ HOMEPAGE="https://wiki.gnome.org/Apps/Boxes"
 
 LICENSE="LGPL-2+"
 SLOT="0"
-KEYWORDS="~*"
+KEYWORDS="*"
 
 # We force 'bindist' due to licenses from gnome-boxes-nonfree
 IUSE="" #bindist

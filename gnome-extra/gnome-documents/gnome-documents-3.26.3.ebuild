@@ -23,7 +23,7 @@ COMMON_DEPEND="
 	>=x11-libs/gtk+-3.22.15:3[introspection]
 	>=net-libs/libsoup-2.41.3:2.4
 	gnome-base/gnome-desktop:3=[introspection]
-	>=app-misc/tracker-2:=[miner-fs]
+	>=app-misc/tracker-2:0=[miner-fs]
 	>=x11-libs/cairo-1.14
 	>=dev-libs/libgdata-0.13.3:=[crypt,gnome-online-accounts,introspection]
 	x11-libs/gdk-pixbuf:2[introspection]
@@ -33,7 +33,7 @@ COMMON_DEPEND="
 	>=app-text/libgepub-0.5[introspection]
 "
 RDEPEND="${COMMON_DEPEND}
-	>=app-misc/tracker-miners-2:=
+	>=app-misc/tracker-miners-2:0=
 	net-misc/gnome-online-miners
 	sys-apps/dbus
 	x11-themes/adwaita-icon-theme
