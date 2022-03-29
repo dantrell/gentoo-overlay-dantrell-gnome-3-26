@@ -59,7 +59,7 @@ RDEPEND="
 	fonts? (
 		>=media-fonts/noto-20181024
 		>=media-fonts/symbola-9.17
-		>=media-fonts/unifont-10.0.06 )
+		>=media-fonts/unifont-13.0.01 )
 	games? (
 		>=games-arcade/gnome-nibbles-3.24.0
 		>=games-arcade/gnome-robots-3.22.0

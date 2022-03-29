@@ -22,7 +22,7 @@ DEPEND="
 	virtual/jpeg:0=
 	x11-libs/cairo:=
 	>=x11-libs/gtk+-3:3
-	colord? ( >=x11-misc/colord-0.1.24:=[udev,vala] )
+	colord? ( >=x11-misc/colord-0.1.24:=[udev(+),vala] )
 "
 RDEPEND="${DEPEND}
 	x11-misc/xdg-utils
