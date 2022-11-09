@@ -18,7 +18,7 @@ LICENSE="
 SLOT="0"
 KEYWORDS="*"
 
-IUSE="accessibility audit branding elogind fprint +introspection ipv6 plymouth selinux smartcard systemd tcpd test wayland xinerama"
+IUSE="accessibility audit branding elogind fprint +introspection plymouth selinux smartcard systemd tcpd test wayland xinerama"
 REQUIRED_USE="
 	?? ( elogind systemd )
 	wayland? ( || ( elogind systemd ) )
@@ -172,7 +172,7 @@ src_configure() {
 		--with-systemdsystemunitdir="$(systemd_get_systemunitdir)" \
 		--without-xevie \
 		$(use_with audit libaudit) \
-		$(use_enable ipv6) \
+		--enable-ipv6 \
 		$(use_with plymouth) \
 		$(use_with selinux) \
 		$(use_enable systemd systemd-journal) \
@@ -213,7 +213,7 @@ pkg_postinst() {
 
 	# bug #436456; gdm crashes if /var/lib/gdm subdirs are not owned by gdm:gdm
 	ret=0
-	ebegin "Fixing "${EROOT}"var/lib/gdm ownership"
+	ebegin "Fixing ${EROOT}/var/lib/gdm ownership"
 	chown gdm:gdm "${EROOT}var/lib/gdm" || ret=1
 	for d in "${EROOT}var/lib/gdm/"{.cache,.config,.local}; do
 		[[ ! -e "${d}" ]] || chown -R gdm:gdm "${d}" || ret=1

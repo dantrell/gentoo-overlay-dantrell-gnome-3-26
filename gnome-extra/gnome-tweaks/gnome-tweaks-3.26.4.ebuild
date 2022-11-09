@@ -3,7 +3,7 @@
 EAPI="6"
 GNOME_ORG_MODULE="gnome-tweak-tool"
 GNOME2_LA_PUNT="yes"
-PYTHON_COMPAT=( python{3_8,3_9,3_10} )
+PYTHON_COMPAT=( python{3_8,3_9,3_10,3_11} )
 
 inherit gnome2 python-single-r1 meson
 

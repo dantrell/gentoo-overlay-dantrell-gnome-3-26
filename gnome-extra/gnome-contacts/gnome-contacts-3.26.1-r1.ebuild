@@ -34,7 +34,7 @@ RDEPEND="
 	media-libs/libchamplain:0.12
 	net-libs/gnome-online-accounts:=[vala]
 	>=net-libs/telepathy-glib-0.22.0
-	>=sci-geosciences/geocode-glib-3.15.3
+	>=sci-geosciences/geocode-glib-3.15.3:0
 	x11-libs/cairo:=
 	x11-libs/gdk-pixbuf:2
 	>=x11-libs/gtk+-3.20.0:3
