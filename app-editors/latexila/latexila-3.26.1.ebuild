@@ -22,7 +22,7 @@ COMMON_DEPEND="
 	>=dev-libs/glib-2.50:2[dbus]
 	>=dev-libs/libgee-0.10:0.8=
 	gnome-base/gsettings-desktop-schemas
-	>=gui-libs/tepl-3.0
+	>=gui-libs/tepl-3.0:4
 	>=x11-libs/gtk+-3.20:3
 	>=x11-libs/gtksourceview-3.24:3.0=
 	x11-libs/gdk-pixbuf:2
