@@ -1,12 +1,12 @@
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="6"
+EAPI="7"
 PYTHON_COMPAT=( python{3_8,3_9,3_10,3_11} )
 VALA_MIN_API_VERSION="0.30"
 DISABLE_AUTOFORMATTING=1
 FORCE_PRINT_ELOG=1
 
-inherit gnome2 llvm meson python-single-r1 readme.gentoo-r1 vala virtualx
+inherit gnome.org gnome2-utils llvm meson python-single-r1 readme.gentoo-r1 vala virtualx xdg
 
 DESCRIPTION="An IDE for writing GNOME-based software"
 HOMEPAGE="https://wiki.gnome.org/Apps/Builder https://gitlab.gnome.org/GNOME/gnome-builder"
@@ -21,20 +21,15 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 # When bumping, pay attention to all the included plugins/*/meson.build (and other) build files and the requirements within.
 # `grep -rI dependency * --include='meson.build'` can give a good initial idea for external deps and their double checking.
-# The listed RDEPEND order shold roughly match that output as well, with toplevel one first.
+# The listed RDEPEND order shold roughly match that output as well, with toplevel one first then sorted by file path.
 # Most plugins have no extra requirements and default to enabled; we need to handle the ones with extra requirements. Many of
 # them have optional runtime dependencies, for which we try to at least notify the user via DOC_CONTENTS (but not all small
 # things); `grep -rI -e 'command-pattern.*=' -e 'push_arg'` can give a (spammy) idea, plus python imports in try/except.
 
-# FIXME: with_flatpak needs flatpak.pc >=0.8.0, ${LIBGIT_DEPS} and libsoup-2.4.pc >=2.52.0
+# FIXME: plugin_flatpak needs flatpak.pc >=0.8.0, ostree-1, libsoup-2.4.pc >=2.52.0 and git plugin enabled
 # Editorconfig needs old pcre, with vte migrating away, might want it optional or ported to pcre2?
 # An introspection USE flag of a dep is required if any introspection based language plugin wants to use it (grep for gi.repository). Last full check at 3.28.4
 
-# These are needed with either USE=git or USE=flatpak (albeit the latter isn't supported yet)
-LIBGIT_DEPS="
-	dev-libs/libgit2[ssh,threads]
-	>=dev-libs/libgit2-glib-0.25.0[ssh]
-"
 # TODO: Handle llvm slots via llvm.eclass; see plugins/clang/meson.build
 RDEPEND="
 	>=dev-libs/libdazzle-3.26.3[introspection,vala?]
@@ -47,10 +42,12 @@ RDEPEND="
 	>=dev-libs/libpeas-1.22.0[python,${PYTHON_SINGLE_USEDEP}]
 	>=dev-libs/template-glib-3.26.1[introspection,vala?]
 	>=x11-libs/vte-0.40.2:2.91[vala?]
-	>=dev-libs/libxml2-2.9.0
-	git? ( ${LIBGIT_DEPS} )
-	dev-libs/libpcre:3
 	webkit? ( >=net-libs/webkit-gtk-2.12.0:4=[introspection] )
+	>=dev-libs/libxml2-2.9.0
+	git? ( dev-libs/libgit2[ssh,threads]
+		>=dev-libs/libgit2-glib-0.25.0[ssh]
+	)
+	dev-libs/libpcre:3
 
 	introspection? ( >=dev-libs/gobject-introspection-1.48.0:= )
 	$(python_gen_cond_dep '
@@ -68,13 +65,11 @@ RDEPEND="
 		dev-lang/vala:=
 		$(vala_depend)
 	)
-" # We use subslot operator dep on vala in addition to $(vala_depend), because we have _runtime_
-#   usage in vapa-pack plugin and need it rebuilt before removing an older vala it was built against
-# TODO: runtime ctags path finding..
-
+"
+DEPEND="${RDEPEND}"
 # desktop-file-utils required for tests, but we have it in deptree for xdg update-desktop-database anyway, so be explicit and unconditional
-# appstream-glib needed for appdata.xml gettext translation and validation of it with appstream-util with FEATURES=test
-DEPEND="${RDEPEND}
+# appstream-glib needed for validation with appstream-util with FEATURES=test
+BDEPEND="
 	doc? ( dev-python/sphinx )
 	dev-libs/appstream-glib
 	dev-util/desktop-file-utils
@@ -116,7 +111,7 @@ pkg_setup() {
 
 src_prepare() {
 	use vala && vala_src_prepare
-	gnome2_src_prepare
+	xdg_src_prepare
 }
 
 src_configure() {
@@ -148,6 +143,7 @@ src_configure() {
 
 src_install() {
 	meson_src_install
+	python_optimize
 	if use doc; then
 		rm "${ED}"/usr/share/doc/gnome-builder/en/.buildinfo || die
 		rm "${ED}"/usr/share/doc/gnome-builder/en/objects.inv || die
@@ -161,13 +157,13 @@ src_install() {
 }
 
 pkg_postinst() {
-	gnome2_pkg_postinst
+	xdg_pkg_postinst
 	gnome2_schemas_update
 	readme.gentoo_print_elog
 }
 
 pkg_postrm() {
-	gnome2_icon_cache_update
+	xdg_pkg_postrm
 	gnome2_schemas_update
 }
 
@@ -176,5 +172,6 @@ src_test() {
 	find "${S}" -name '*.gschema.xml' -exec cp {} "${BUILD_DIR}/data/gsettings" \; || die
 	"${EROOT}${GLIB_COMPILE_SCHEMAS}" --allow-any-name "${BUILD_DIR}/data/gsettings" || die
 
-	virtx meson_src_test
+	# FIXME: can't run meson_src_test together with virtx or dbus-run-session
+	virtx dbus-run-session meson test -C "${BUILD_DIR}"
 }
