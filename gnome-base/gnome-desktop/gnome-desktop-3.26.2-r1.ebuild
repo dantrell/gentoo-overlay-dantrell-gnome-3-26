@@ -34,7 +34,7 @@ RDEPEND="${COMMON_DEPEND}"
 DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.1.2
 	dev-util/gdbus-codegen
-	>=dev-util/gtk-doc-am-1.14
+	>=dev-build/gtk-doc-am-1.14
 	>=dev-util/intltool-0.40.6
 	dev-util/itstool
 	sys-devel/gettext
@@ -47,7 +47,7 @@ DEPEND="${COMMON_DEPEND}
 src_prepare() {
 	if ! use vanilla-thumbnailer; then
 		# From GNOME:
-		# 	https://gitlab.gnome.org/GNOME/gnome-desktop/commit/8b1db18aa75c2684b513481088b4e289b5c8ed92
+		# 	https://gitlab.gnome.org/GNOME/gnome-desktop/-/commit/8b1db18aa75c2684b513481088b4e289b5c8ed92
 		eapply "${FILESDIR}"/${PN}-3.26.2-dont-sandbox-thumbnailers-on-linux.patch
 	fi
 

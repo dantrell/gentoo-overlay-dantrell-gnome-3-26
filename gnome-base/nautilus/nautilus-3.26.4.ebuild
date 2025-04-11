@@ -43,7 +43,7 @@ COMMON_DEPEND="
 DEPEND="${COMMON_DEPEND}
 	>=dev-lang/perl-5
 	>=dev-util/gdbus-codegen-2.33
-	>=dev-util/gtk-doc-am-1.10
+	>=dev-build/gtk-doc-am-1.10
 	>=sys-devel/gettext-0.19.7
 	virtual/pkgconfig
 	x11-base/xorg-proto
@@ -55,7 +55,7 @@ RDEPEND="${COMMON_DEPEND}
 
 # For eautoreconf
 #	gnome-base/gnome-common
-#	dev-util/gtk-doc-am"
+#	dev-build/gtk-doc-am"
 
 PDEPEND="
 	gnome? ( x11-themes/adwaita-icon-theme )
@@ -82,9 +82,9 @@ src_prepare() {
 		eapply "${FILESDIR}"/${PN}-3.26.3.1-reorder-context-menu.patch
 		if ! use vanilla-menu-compress; then
 			# From GNOME:
-			# 	https://gitlab.gnome.org/GNOME/nautilus/commit/cd78b1c9863a25a5fae0f2f7f98ca6d58681cbd6
-			# 	https://gitlab.gnome.org/GNOME/nautilus/commit/501ece61be272b575f3e95acd857bb7d8cf93240
-			# 	https://gitlab.gnome.org/GNOME/nautilus/commit/1bdc404245da0491b8c5f41eee947aef59f5d73e
+			# 	https://gitlab.gnome.org/GNOME/nautilus/-/commit/cd78b1c9863a25a5fae0f2f7f98ca6d58681cbd6
+			# 	https://gitlab.gnome.org/GNOME/nautilus/-/commit/501ece61be272b575f3e95acd857bb7d8cf93240
+			# 	https://gitlab.gnome.org/GNOME/nautilus/-/commit/1bdc404245da0491b8c5f41eee947aef59f5d73e
 			eapply -R "${FILESDIR}"/${PN}-3.25.90-mime-actions-null-check-app-info.patch
 			eapply -R "${FILESDIR}"/${PN}-3.25.90-general-remove-spaces-from-desktop-mimetype-list.patch
 			eapply -R "${FILESDIR}"/${PN}-3.26.3.1-general-add-mime-type-support-for-archives.patch
@@ -94,9 +94,9 @@ src_prepare() {
 		fi
 	elif ! use vanilla-menu-compress; then
 		# From GNOME:
-		# 	https://gitlab.gnome.org/GNOME/nautilus/commit/cd78b1c9863a25a5fae0f2f7f98ca6d58681cbd6
-		# 	https://gitlab.gnome.org/GNOME/nautilus/commit/501ece61be272b575f3e95acd857bb7d8cf93240
-		# 	https://gitlab.gnome.org/GNOME/nautilus/commit/1bdc404245da0491b8c5f41eee947aef59f5d73e
+		# 	https://gitlab.gnome.org/GNOME/nautilus/-/commit/cd78b1c9863a25a5fae0f2f7f98ca6d58681cbd6
+		# 	https://gitlab.gnome.org/GNOME/nautilus/-/commit/501ece61be272b575f3e95acd857bb7d8cf93240
+		# 	https://gitlab.gnome.org/GNOME/nautilus/-/commit/1bdc404245da0491b8c5f41eee947aef59f5d73e
 		eapply -R "${FILESDIR}"/${PN}-3.25.90-mime-actions-null-check-app-info.patch
 		eapply -R "${FILESDIR}"/${PN}-3.25.90-general-remove-spaces-from-desktop-mimetype-list.patch
 		eapply -R "${FILESDIR}"/${PN}-3.26.3.1-general-add-mime-type-support-for-archives.patch
